@@ -22,20 +22,20 @@ const Footer = () => {{
                             <div className="nav__title">
                                 навигация
                             </div>
-                            <a href="" className="nav__link">
-                                о нас
+                            <a href="#why-us" className="nav__link">
+                                О нас
                             </a>
-                            <a href="" className="nav__link">
-                                преимущества
+                            <a href="#reasons" className="nav__link">
+                                Преимущества
                             </a>
-                            <a href="" className="nav__link">
-                                кому
+                            <a href="#target" className="nav__link">
+                                Кому
                             </a>
-                            <a href="" className="nav__link">
-                                продукты
+                            <a href="#products" className="nav__link">
+                                Продукты
                             </a>
-                            <a href="" className="nav__link">
-                                faq
+                            <a href="#faq" className="nav__link">
+                                FAQ
                             </a>
                         </div>
                         <div className="nav__col">
@@ -49,7 +49,7 @@ const Footer = () => {{
                                 YOUTUBE
                             </a>
                             <a href="" className="nav__link">
-                                twitter (x)
+                            twitter (x)
                             </a>
                             <a href="" className="nav__link nav__link--disabled">
                                 debank personal

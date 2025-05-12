@@ -3,28 +3,28 @@ import { ReactSVG } from 'react-svg';
 import {Button} from "@/components/ui/button.tsx";
 
 import LogoIcon from "@/assets/svg/academy-logo.svg";
-import TelegramIcon from "@/assets/svg/soc-telegram.svg";
-import XIcon from "@/assets/svg/soc-xtwitter.svg";
-
+import BurgerIcon from "@/assets/svg/burger.svg";
 
 const Header = () => {{
     return (
         <div className="header">
-            <ReactSVG src={LogoIcon} className="header__logo reactsvg"/>
+            <a href="#hero">
+                <ReactSVG src={LogoIcon} className="header__logo reactsvg"/>
+            </a>
             <nav className="header__nav">
-                <a href="" className="header__nav-link">
+                <a href="#why-us" className="header__nav-link">
                     О нас
                 </a>
-                <a href="" className="header__nav-link">
+                <a href="#reasons" className="header__nav-link">
                     Преимущества
                 </a>
-                <a href="" className="header__nav-link">
+                <a href="#target" className="header__nav-link">
                     Кому
                 </a>
-                <a href="" className="header__nav-link">
+                <a href="#products" className="header__nav-link">
                     Продукты
                 </a>
-                <a href="" className="header__nav-link">
+                <a href="#faq" className="header__nav-link">
                     FAQ
                 </a>
             </nav>
@@ -33,12 +33,12 @@ const Header = () => {{
                     RU
                 </Button>
                 <Button variant="outline" size="icon">
-                    <ReactSVG src={TelegramIcon} className="reactsvg"/>
+                    ENG
                 </Button>
-                <Button variant="outline" size="icon">
-                    <ReactSVG src={XIcon} className="reactsvg"/>
+                <Button className="header__button header__button--burger" variant="outline" size="icon">
+                    <ReactSVG src={BurgerIcon} className="reactsvg"/>
                 </Button>
-                <Button>
+                <Button className="header__button header__button--sprint">
                     Начать SPRINT
                 </Button>
             </div>

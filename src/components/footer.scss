@@ -3,8 +3,26 @@
 
 .footer {
     &__row {
+        position: relative;
         @include flex(space-between, stretch);
         gap: 150px;
+
+        @media (max-width: 1500px) {
+            gap: 70px;
+        }
+
+        @include respond-to(xxl) {
+            flex-wrap: wrap;
+        }
+
+        @include respond-to(desktop) {
+            padding-bottom: 250px;
+        }
+
+        @media (max-width: 600px) {
+            padding-bottom: 0;
+            gap: 30px;
+        }
     }
 
     &__logo {
@@ -16,11 +34,10 @@
     &__buttons {
         @include flex();
         gap: 30px;
-
     }
 
     &__button {
-
+        text-transform: uppercase;
         &:after,
         &:before {
             display: none;
@@ -33,9 +50,37 @@
     }
 
     &__col {
+        &:first-child {
+            @include respond-to(xxl) {
+                min-width: 100%;
+            }
+        }
+
+        &:last-child {
+            @include respond-to(desktop) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            @media (max-width: 600px) {
+                position: static;
+                margin-left: auto;
+            }
+        }
+
         &--expand {
             @include flex(flex-end);
             flex: 1;
+
+            @include respond-to(xxl) {
+                justify-content: stretch;
+            }
+
+            @media (max-width: 600px) {
+                min-width: 100%;
+                justify-content: center;
+            }
         }
     }
 
@@ -43,6 +88,11 @@
         @include flex();
         gap: 80px;
         letter-spacing: -.05em;
+
+        @media (max-width: 600px) {
+            gap: 40px;
+            flex-direction: column;
+        }
 
         &__title {
             margin-bottom: 14px;
@@ -71,6 +121,10 @@
         height: auto;
         object-fit: contain;
         object-position: center bottom;
+
+        @include respond-to(desktop) {
+            width: 270px;
+        }
     }
 
     &__bottom {

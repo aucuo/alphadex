@@ -1,9 +1,11 @@
+@import "@/styles/variables";
 @import "@/styles/mixins";
 
 .header {
     @include flex(space-between, center);
     gap: 20px;
     padding: 26px 0;
+
 
     &__nav {
         @include flex(space-between, center);
@@ -17,5 +19,34 @@
     &__buttons {
         @include flex(space-between, center);
         gap: 24px;
+    }
+
+    &__button {
+        padding: 10px 11px !important;
+        font-size: 12px;
+
+        &:after,
+        &:before {
+            content: unset !important;
+        }
+
+        &--sprint {
+            @include respond-to(xxl) {
+                display: none !important;
+            }
+        }
+
+        &--burger {
+            display: none !important;
+
+            @include respond-to(xxl) {
+                display: flex !important;
+            }
+
+            .reactsvg {
+                width: 16px;
+                height: 12px;
+            }
+        }
     }
 }

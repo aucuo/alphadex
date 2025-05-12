@@ -3,12 +3,16 @@
 @import "@/styles/mixins";
 
 .accordion {
-
-
     &__item {
         border: 6px solid $primary;
         border-radius: 30px;
         padding: 30px;
+
+        @include respond-to(large) {
+            padding: 15px;
+            border-width: 3px;
+            border-radius: 15px;
+        }
     }
 
     &__header {
@@ -22,6 +26,11 @@
         right: 40px;
         top: 50%;
         transform: translateY(-50%);
+
+        @include respond-to(large) {
+            width: 16px;
+            right: 30px;
+        }
     }
 
     &__trigger {
@@ -30,10 +39,15 @@
         font-size: 35px;
         font-family: Ifkica, sans-serif;
         cursor: pointer;
+        padding-right: 80px;
         transition: .2s all ease-in-out;
 
         &:hover {
             opacity: .8;
+        }
+
+        @include respond-to(large) {
+            font-size: 20px;
         }
 
         &_active {
@@ -59,5 +73,10 @@
         font-size: 25px;
         padding-top: 70px;
         padding-right: 100px;
+
+        @include respond-to(large) {
+            font-size: 15px;
+            padding-top: 45px;
+        }
     }
 }

@@ -5,12 +5,16 @@
     @include flex(center, center);
     @include text-ellipsis();
     position: relative;
-    padding: 20px 14px;
     font-family: Ifkica, sans-serif;
     border-radius: 10px;
+    padding: 20px 14px;
     cursor: pointer;
     transition: .2s all ease-in-out;
     overflow: unset;
+
+    @include respond-to(desktop) {
+        padding: 16px 12px;
+    }
 
     &:disabled {
         opacity: .6;
@@ -48,7 +52,7 @@
         }
 
         &:before {
-            z-index: -1;
+            z-index: 0;
             @include pseudo();
             inset: -1px;
             border: 1px solid #fff;
@@ -82,8 +86,18 @@
     }
 
     &--icon {
-        width: 72px;
-        height: 72px;
+        font-family: 'Nomerok Mono', sans-serif;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        padding: 0;
         border-radius: 72px;
+
+        @include respond-to(desktop) {
+
+            .reactsvg {
+                width: 16px;
+            }
+        }
     }
 }

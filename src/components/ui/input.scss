@@ -12,6 +12,12 @@
     height: 58px;
     font-size: 25px;
 
+    @include respond-to(tablet) {
+        font-size: 16px;
+        padding: 0 20px;
+        height: 48px;
+    }
+
     &__wrapper {
         position: relative;
         width: fit-content;
