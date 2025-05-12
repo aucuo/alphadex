@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import './accordion.scss'
@@ -28,26 +27,28 @@ function AccordionItem({
 }
 
 function AccordionTrigger({
-                            className,
-                            children,
-                            ...props
-                          }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
-  return (
-      <AccordionPrimitive.Header className="accordion__header">
-        <AccordionPrimitive.Trigger
-            data-slot="accordion-trigger"
-            className={cn(
-                "accordion__trigger",
-                className,
-                { "accordion__trigger_active": props["data-state"] === "open" }
-            )}
-            {...props}
-        >
-          {children}
-            <ReactSVG src={ArrowDownIcon} className="accordion__icon reactsvg"/>
-        </AccordionPrimitive.Trigger>
-      </AccordionPrimitive.Header>
-  )
+                              className,
+                              children,
+                              ...props
+                          }: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
+    "data-state"?: string; // Добавляем явное определение для data-state
+}) {
+    return (
+        <AccordionPrimitive.Header className="accordion__header">
+            <AccordionPrimitive.Trigger
+                data-slot="accordion-trigger"
+                className={cn(
+                    "accordion__trigger",
+                    className,
+                    { "accordion__trigger_active": props["data-state"] === "open" }
+                )}
+                {...props}
+            >
+                {children}
+                <ReactSVG src={ArrowDownIcon} className="accordion__icon reactsvg" />
+            </AccordionPrimitive.Trigger>
+        </AccordionPrimitive.Header>
+    );
 }
 
 function AccordionContent({

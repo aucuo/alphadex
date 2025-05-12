@@ -32,9 +32,7 @@ import FollowArrowIcon from "@/assets/svg/follow-arrow.svg";
 
 import YoutubeIcon from "@/assets/svg/soc-youtube.svg";
 import TelegramIcon from "@/assets/svg/soc-telegram.svg";
-import XIcon from "@/assets/svg/soc-xtwitter.svg";
 import ArrowRightIcon from "@/assets/svg/arrow-right.svg";
-import TargetArrowIcon from "@/assets/svg/target-arrow.svg";
 import Footer from "@/components/footer.tsx";
 
 function App() {
