@@ -1,0 +1,21 @@
+@import "@/styles/mixins";
+
+.header {
+    @include flex(space-between, center);
+    gap: 20px;
+    padding: 26px 0;
+
+    &__nav {
+        @include flex(space-between, center);
+        gap: 50px;
+
+        @include respond-to('xxl') {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        @include flex(space-between, center);
+        gap: 24px;
+    }
+}

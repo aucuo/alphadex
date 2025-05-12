@@ -1,0 +1,18 @@
+
+
+.container {
+    max-width: 1800px;
+    padding: 0 50px;
+    margin: 0 auto;
+}
+
+.reactsvg {
+    div, svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}

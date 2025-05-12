@@ -1,0 +1,673 @@
+
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.section {
+    position: relative;
+    padding: 80px 0;
+
+    &:first-child {
+        padding: 0 0 80px;
+    }
+
+    &__title {
+        position: relative;
+        width: fit-content;
+        font-size: 36px;
+        text-transform: uppercase;
+
+        &:after,
+        &:before {
+            @include pseudo();
+            inset: -14px auto auto -28px;
+            background-image: url('@/assets/svg/border-corner.svg');
+            width: 24px;
+            height: 24px;
+        }
+
+        &:after {
+            inset: auto -28px -14px auto;
+            transform: rotate(180deg);
+        }
+
+        &-background {
+            z-index: -1;
+            position: absolute;
+            inset: 20% 0;
+            background: #00F0FC;
+            border-radius: 100px;
+            filter: blur(100px);
+        }
+    }
+}
+
+.hero {
+    @include flex(flex-start, stretch, column);
+    position: relative;
+    min-height: 100vh;
+
+    &__wrapper {
+        @include flex(center, center, column);
+        flex: 1;
+        gap: 130px;
+
+        .reactsvg {
+            width: 190px;
+        }
+
+        h1 {
+            font-size: 96px;
+        }
+
+        p {
+            text-transform: uppercase;
+            font-size: 33px;
+        }
+    }
+
+    &__circles {
+        z-index: -1;
+        position: absolute;
+        inset: 0 0 auto;
+    }
+
+    &__coin {
+        z-index: -1;
+        position: absolute;
+        width: 450px;
+        height: auto;
+
+        &--left {
+            inset: 150px auto 30px auto;
+        }
+
+        &--right {
+            inset: auto 30px -150px auto;
+        }
+    }
+}
+
+.why-us {
+    &__title {
+        margin-bottom: 150px;
+    }
+
+    &__list {
+        @include flex(space-between, stretch, row, wrap);
+        gap: 50px;
+        height: 460px;
+    }
+
+    .card {
+        @include flex(center, center, column);
+        position: relative;
+        flex: 1;
+        min-width: 330px;
+        padding: 0 24px;
+        background-color: $primary;
+        color: #000;
+        border-radius: 40px;
+
+        &__shape {
+            position: absolute;
+
+            &:first-child {
+                inset: -2px -2px auto;
+                transform: rotate(180deg);
+            }
+            &:last-child {
+                inset: auto -2px -2px;
+            }
+        }
+
+        &__title {
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        &__text {
+            font-size: 15px;
+            text-align: center;
+        }
+    }
+}
+
+.reasons {
+    padding: 60px 0 60px 40px;
+    margin-bottom: 150px;
+
+    &:before,
+    &:after {
+        z-index: -1;
+        @include pseudo();
+        background: url('@/assets/svg/section-carve.svg') center top / 100% no-repeat;
+        inset: 0 30px 0;
+        opacity: .4;
+    }
+    
+    &:after {
+        transform: rotate(180deg);
+    }
+
+    &__title {
+        margin-bottom: 100px;
+    }
+
+    &__list {
+        @include flex(stretch, flex-end, column);
+        gap: 100px;
+    }
+
+    .card {
+        @include flex();
+        position: relative;
+        width: 100%;
+        max-width: 1300px;
+        padding: 15px 0 15px 30px;
+
+        &__num {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translate(-100%, -50%);
+        }
+
+        &__shape {
+            position: relative;
+            width: 160px;
+            background-image: url("@/assets/svg/abstract-shaper.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-right: -2px;
+        }
+
+        &__wrapper {
+            @include flex(center, center, column);
+            flex: 1;
+            background-color: #000;
+            min-height: 560px;
+            color: #fff;
+        }
+
+        &::after {
+            z-index: -1;
+            @include pseudo();
+            inset: 0;
+            background: linear-gradient(90deg,rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
+            border-radius: 40px 0 0 40px;
+        }
+        
+        &__title {
+            font-size: 45px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        &__text {
+            font-size: 20px;
+            text-align: center;
+            max-width: 630px;
+            margin-bottom: 45px;
+        }
+    }
+}
+
+.target {
+    &__title {
+        margin-bottom: 450px;
+    }
+
+    .ills {
+        position: relative;
+        margin-bottom: 450px;
+
+        &:before {
+            z-index: -1;
+            @include pseudo();
+            inset: 15px 0 auto;
+            height: 50px;
+            background: linear-gradient(90deg,rgba(0, 240, 252, 0) 0%, rgba(0, 240, 252, 1) 50%, rgba(0, 240, 252, 0.2) 100%);
+        }
+
+        &__container {
+            @include flex(center, flex-start);
+        }
+    }
+
+    .ill {
+        position: relative;
+        width: 100%;
+        max-width: 607px;
+
+        &__arrow {
+            width: 100%;
+            height: 81px;
+            background: url('@/assets/svg/target-arrow.svg') center right no-repeat;
+        }
+
+        &__info {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            @include flex(center, center, column);
+            text-align: center;
+            font-size: 20px;
+
+            &-dec {
+                @include flex(center, center, column);
+                position: relative;
+                margin-top: 24px;
+                margin-bottom: 70px;
+                width: 85px;
+                height: 85px;
+                border-radius: 100px;
+                background-color: #fff;
+
+                &:after {
+                    @include pseudo();
+                    inset: 42px auto auto;
+                    transform-origin: top;
+                    height: 100px;
+                    width: 4px;
+                    background-color: $primary;
+                    opacity: .35;
+                }
+            }
+        }
+
+        &--center {
+            max-width: 400px;
+            margin: 0 -30px;
+
+            .ill {
+                &__info {
+                    width: 800px;
+                    max-width: 800px;
+                    top: unset;
+                    bottom: 0;
+                    transform: translateX(-25%);
+
+                    &-dec {
+                        @include flex(center, center, column);
+                        margin-top: 70px;
+                        margin-bottom: 24px;
+
+                        &:after {
+                            @include pseudo();
+                            inset: auto auto 42px;
+                            transform-origin: bottom;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__title {
+            font-family: Ifkica, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.products {
+    &__title {
+        margin-bottom: 100px;
+    }
+
+    &__list {
+        @include flex(space-between, stretch);
+        gap: 20px;
+    }
+
+    .card {
+        @include flex(flex-start, stretch, column);
+        position: relative;
+        border-radius: 40px;
+        padding: 30px 26px;
+        background-color: $primary;
+        color: #000;
+        min-height: 800px;
+        flex: 1;
+
+        &:nth-child(2) {
+            background-color: #000;
+            color: $primary;
+
+            &:before {
+                z-index: -1;
+                @include pseudo();
+                inset: -2px;
+                background: linear-gradient(180deg,rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
+                border-radius: 40px;
+            }
+
+            .price {
+                background-color: #00F0FC50;
+                color: #fff;
+            }
+        }
+
+        &__badge {
+            position: absolute;
+            inset: -30px -10px auto auto;
+            transform: rotate(-13deg);
+            font-family: Ifkica, sans-serif;
+            font-size: 20px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        &__title {
+            font-size: 50px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        &__text {
+            font-family: Ifkica, sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        &__list {
+            margin-bottom: 20px;
+            flex: 1;
+
+            &-item {
+                @include flex(flex-start, center);
+                position: relative;
+                padding-left: 40px;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+
+                &::before {
+                    @include pseudo();
+                    position: absolute;
+                    left: 0;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 20px;
+                    background-color: #000;
+                }
+            }
+        }
+
+        &__info {
+            font-family: Ifkica, sans-serif;
+            font-size: 13px;
+            line-height: 25px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .price {
+            position: relative;
+            font-family: Ifkica, sans-serif;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px 20px;
+            min-height: 120px;
+            margin-bottom: 20px;
+
+            &__old {
+                font-size: 15px;
+                margin-bottom: 15px;
+                text-decoration: line-through;
+                opacity: .7;
+            }
+
+            &__current {
+                font-size: 35px;
+            }
+
+            &__badge {
+                width: 55px;
+                height: 55px;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            }
+        }
+
+        &__button {
+            margin: 0 auto;
+            text-transform: uppercase;
+            font-size: 20px;
+            border-radius: 15px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.faq {
+    padding: 80px 80px;
+    margin-bottom: 200px;
+
+    &:before,
+    &:after {
+        z-index: -1;
+        @include pseudo();
+        background: url('@/assets/svg/section-carve.svg') center top / 100% no-repeat;
+        inset: 0 30px 0;
+        opacity: .4;
+    }
+
+    &:after {
+        transform: rotate(180deg);
+    }
+
+    &__title {
+        margin-bottom: 100px;
+    }
+
+    &__list {
+        @include flex(flex-start, stretch, column);
+        gap: 50px;
+    }
+}
+
+.questions {
+    margin-bottom: 200px;
+
+    &__title {
+        margin-bottom: 100px;
+    }
+
+    &__hero {
+        z-index: -1;
+        position: absolute;
+
+        &--sonic {
+            top: 200px;
+            left: -100px;
+        }
+
+        &--hatico {
+            top: -40px;
+            right: -200px;
+        }
+    }
+
+    .middle {
+        @include flex(center, center, column);
+        gap: 40px;
+        max-width: 700px;
+        padding: 0 20px;
+        font-size: 25px;
+        text-align: center;
+        margin: 0 auto;
+
+        &__input {
+            width: 100%;
+        }
+
+        &__text {
+            letter-spacing: -.05em;
+        }
+
+        &__title {
+            letter-spacing: .05em;
+            color: $primary;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.qr {
+    &__text {
+        @include flex(center, center, column);
+        padding: 100px 0 150px;
+        background: url('@/assets/svg/section-bg.svg') center top / 100% no-repeat;
+    }
+
+    &__title {
+        font-size: 60px;
+        margin-bottom: 100px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        width: 278px;
+        height: 278px;
+    }
+
+    .frame {
+        position: relative;
+        @include flex(center, center, column);
+        gap: 20px;
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 30px;
+        height: 420px;
+        margin-bottom: 150px;
+
+        &:before {
+            @include pseudo();
+            inset: -24px;
+            background: url('@/assets/svg/frame.svg') center top / 100% no-repeat;
+        }
+    }
+
+    &__list {
+        @include flex(space-between, stretch);
+        gap: 40px;
+        margin-top: -150px;
+
+        animation: scroll 20s linear infinite;
+        counter-reset: item;
+    }
+
+    &__res {
+        width: 485px;
+        height: 337px;
+        object-fit: cover;
+        border-radius: 25px;
+        transition: all 0.1s ease-in-out;
+
+        &:before {
+            content: counter(item);
+        }
+    }
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - 20px));
+        }
+    }
+}
+
+.follow {
+    &__title {
+        margin-bottom: 120px;
+
+        .background {
+            display: none;
+        }
+
+        &-arrow {
+            position: absolute;
+            width: 100px;
+            top: 20px;
+            right: -150px;
+        }
+    }
+
+    &__text {
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 100px;
+    }
+
+    .soc {
+        @include flex(space-between, center);
+        gap: 35px;
+
+        &:not(:last-child) {
+            margin-bottom: 100px;
+        }
+
+        &__icon {
+            box-sizing: content-box;
+            width: 50px;
+            height: 50px;
+            padding: 20px;
+            border-radius: 100px;
+            border: 3px solid #fff;
+        }
+
+        &__info {
+            flex: 1;
+        }
+
+        &__title {
+            text-transform: uppercase;
+            color: $primary;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        &__text {
+            font-size: 23px;
+        }
+
+        &__button {
+            color: $primary;
+            border-color: $primary;
+            border-radius: 15px;
+            padding: 10px 15px;
+            gap: 20px;
+            text-transform: uppercase;
+
+            .reactsvg {
+                width: 10px;
+            }
+        }
+    }
+    
+    &__btitle {
+        font-size: 25px;
+        margin-top: 130px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: $primary;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__btext {
+        text-align: center;
+        font-size: 25px;
+    }
+}

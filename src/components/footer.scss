@@ -1,0 +1,91 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.footer {
+    &__row {
+        @include flex(space-between, stretch);
+        gap: 150px;
+    }
+
+    &__logo {
+        width: 265px;
+        height: auto;
+        margin-bottom: 32px;
+    }
+
+    &__buttons {
+        @include flex();
+        gap: 30px;
+
+    }
+
+    &__button {
+
+        &:after,
+        &:before {
+            display: none;
+        }
+
+        &--outline {
+            border: 3px solid $primary;
+            color: $primary;
+        }
+    }
+
+    &__col {
+        &--expand {
+            @include flex(flex-end);
+            flex: 1;
+        }
+    }
+
+    .nav {
+        @include flex();
+        gap: 80px;
+        letter-spacing: -.05em;
+
+        &__title {
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            opacity: .5;
+            font-size: 18px;
+        }
+
+        &__link {
+            display: block;
+            text-transform: uppercase;
+            transition: .2s all ease-in-out;
+
+            &:hover {
+                opacity: .8;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    &__pepe {
+        width: 300px;
+        height: auto;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    &__bottom {
+        position: relative;
+        padding: 30px 0 60px;
+
+        &-text {
+            opacity: .5;
+        }
+
+        &:before {
+            @include pseudo();
+            inset: -3px -40px auto;
+            background: linear-gradient(90deg,rgba(0, 240, 252, 0) 0%, rgba(0, 240, 252, 1) 50%, rgba(0, 240, 252, 0.2) 100%);
+            height: 3px;
+        }
+    }
+}

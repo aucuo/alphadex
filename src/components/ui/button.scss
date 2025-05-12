@@ -1,0 +1,89 @@
+
+@import "@/styles/mixins";
+
+.btn {
+    @include flex(center, center);
+    @include text-ellipsis();
+    position: relative;
+    padding: 20px 14px;
+    font-family: Ifkica, sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+    overflow: unset;
+
+    &:disabled {
+        opacity: .6;
+    }
+
+    &:not(&:disabled) {
+        &:hover {
+            opacity: .8;
+        }
+        &:active {
+            scale: .99;
+        }
+    }
+
+    .reactsvg {
+        width: 30px;
+    }
+
+    &--small {
+        padding: 0 16px;
+        height: 50px;
+    }
+
+    &--primary {
+        background-color: var(--primary);
+        color: #000;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        &:not(&:disabled) {
+            &:hover {
+                opacity: 1;
+                background-color: var(--primary-hover);
+            }
+        }
+
+        &:before {
+            z-index: -1;
+            @include pseudo();
+            inset: -1px;
+            border: 1px solid #fff;
+            border-radius: 11px;
+        }
+
+        &:after {
+            z-index: -2;
+            @include pseudo();
+            inset: 4px -4px -4px 4px;
+            border-radius: 11px;
+            background-color: #00979F;
+        }
+    }
+
+    &--outline {
+        background-color: unset;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+    &--outline-primary {
+        background-color: unset;
+        border: 5px solid #00F1FC40;
+        color: #fff;
+    }
+
+    &--black {
+        background-color: #000;
+        color: #fff;
+    }
+
+    &--icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 72px;
+    }
+}

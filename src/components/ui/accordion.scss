@@ -1,0 +1,63 @@
+
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.accordion {
+
+
+    &__item {
+        border: 6px solid $primary;
+        border-radius: 30px;
+        padding: 30px;
+    }
+
+    &__header {
+        position: relative;
+    }
+
+    &__icon {
+        position: absolute;
+        width: 32px;
+        height: auto;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__trigger {
+        width: 100%;
+        text-align: left;
+        font-size: 35px;
+        font-family: Ifkica, sans-serif;
+        cursor: pointer;
+        transition: .2s all ease-in-out;
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &_active {
+            background-color: #f9fafb;
+        }
+
+        svg {
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+
+    &__content {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out;
+
+        &[data-state=open] {
+            max-height: 500px; // Укажите подходящую высоту
+        }
+    }
+
+    &__body {
+        font-size: 25px;
+        padding-top: 70px;
+        padding-right: 100px;
+    }
+}
