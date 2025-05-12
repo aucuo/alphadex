@@ -35,8 +35,8 @@ function App() {
 
     return (
         <>
-            <div className="container">
-                <section className="hero section" id="hero">
+            <section className="hero section" id="hero">
+                <div className="container">
                     <Header/>
                     <div className="hero__wrapper">
                         <ReactSVG src={RocketIcon} className="reactsvg"/>
@@ -47,7 +47,9 @@ function App() {
                     <div className="hero__circles"></div>
                     <img className="hero__coin hero__coin--left" src={CoinsLImage} alt="Монеты крипта"/>
                     <img className="hero__coin hero__coin--right" src={CoinsRImage} alt="Монеты крипта"/>
-                </section>
+                </div>
+            </section>
+            <div className="container">
                 <WhyUsSection/>
             </div>
             <ReasonsSection/>
@@ -324,8 +326,8 @@ function App() {
                     </Accordion>
                 </div>
             </section>
-            <div className="container">
-                <section className="questions section">
+            <section className="questions section">
+                <div className="container">
                     <SectionTitle className="questions__title">
                         Остались<br/>
                         вопросы?
@@ -352,8 +354,8 @@ function App() {
                             <Button size="sm">Оставить заявку</Button>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
             <section className="qr section">
                 <div className="qr__container container">
                     <div className="qr__text">
@@ -363,7 +365,13 @@ function App() {
                         </h2>
                         <div className="qr__frame frame">
                             <img className="qr__image" src={QRImage} alt="QR код"/>
-                            <Button size="sm">Торговать</Button>
+                            <Button size="sm"
+                                    onClick={() => {
+                                        window.open("https://t.me/resolve?domain=alpha_web3_bot&start=academy", "_blank");
+                                    }}
+                            >
+                                Торговать
+                            </Button>
                         </div>
                     </div>
                     <div className="qr__list">
@@ -407,7 +415,11 @@ function App() {
                                 и поддержка 24/7 в закрытом комьюнити
                             </p>
                         </div>
-                        <Button className="soc__button" variant="outline" size="sm">
+                        <Button className="soc__button" variant="outline" size="sm"
+                                onClick={() => {
+                                    window.open("https://t.me/AlphaDEX_Academy", "_blank");
+                                }}
+                        >
                             Перейти в Telegram
                             <ReactSVG className="reactsvg" src={ArrowRightIcon}/>
                         </Button>

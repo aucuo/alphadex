@@ -44,19 +44,19 @@ const Footer = () => {{
                             <div className="nav__title">
                                 подпишись
                             </div>
-                            <a href="" className="nav__link">
+                            <a href="https://t.me/AlphaDEX_Academy" target="_blank" className="nav__link">
                                 telegram
                             </a>
-                            <a href="" className="nav__link">
+                            <a href="" target="_blank" className="nav__link">
                                 YOUTUBE
                             </a>
-                            <a href="" className="nav__link">
-                            twitter (x)
+                            <a href="" target="_blank" className="nav__link">
+                                twitter (x)
                             </a>
-                            <a href="" className="nav__link nav__link--disabled">
+                            <a href="" target="_blank" className="nav__link nav__link--disabled">
                                 debank personal
                             </a>
-                            <a href="" className="nav__link nav__link--disabled">
+                            <a href="" target="_blank" className="nav__link nav__link--disabled">
                                 debank team
                             </a>
                         </div>

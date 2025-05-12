@@ -14,6 +14,7 @@
         width: fit-content;
         font-size: 36px;
         text-transform: uppercase;
+        margin-left: 20px;
 
         &:after,
         &:before {
@@ -58,9 +59,13 @@
 }
 
 .hero {
-    @include flex(flex-start, stretch, column);
-    position: relative;
-    min-height: 100vh;
+    .container {
+        @include flex(flex-start, stretch, column);
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        max-width: unset;
+    }
 
     &__wrapper {
         @include flex(center, center, column);
@@ -315,6 +320,11 @@
 
 .questions {
     margin-bottom: 200px;
+    overflow: hidden;
+
+    .container {
+        padding-top: 160px;
+    }
 
     @include respond-to(large) {
         margin-bottom: 0;
@@ -329,7 +339,7 @@
         position: absolute;
 
         &--sonic {
-            top: 200px;
+            top: 400px;
             left: -100px;
 
             @include respond-to(large) {
@@ -338,7 +348,7 @@
         }
 
         &--hatico {
-            top: -200px;
+            top: 0px;
             right: -100px;
 
             @include respond-to(large) {

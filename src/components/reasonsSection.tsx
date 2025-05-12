@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ReactSVG } from 'react-svg';
 
 import SectionTitle from "@/components/sectionTitle.tsx";
@@ -13,7 +13,7 @@ import './reasonsSection.scss';
 import { Button } from "@/components/ui/button.tsx";
 
 const ReasonsSection: React.FC = () => {
-    const [currentIndex, setCurrentIndex] = useState(0); // Текущая карточка
+    const wrapperRef = useRef<HTMLDivElement | null>(null); // Для отслеживания контейнера
 
     // Массив карточек
     const cards = [
@@ -44,42 +44,70 @@ const ReasonsSection: React.FC = () => {
         },
     ];
 
-    // Автоматическая смена карточек
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % cards.length); // Циклическая смена индекса
-        }, 4000);
+    // Настройка scroll progress
+    const { scrollYProgress } = useScroll({
+        target: wrapperRef,
+        offset: ["start start", "end start"], // Отслеживание скролла внутри секции
+    });
 
-        return () => clearInterval(interval); // Очистка интервала при размонтировании
-    }, [cards.length]);
+    // Резкое исчезновение заголовка
+    const headerOpacity = useTransform(
+        scrollYProgress,
+        [(cards.length - 1.5) / cards.length, (cards.length - 1.2) / cards.length], // Точка срабатывания
+        [1, 0],
+        { clamp: true }
+    );
 
     return (
-        <section className="reasons section" id="reasons">
-            <SectionTitle className="reasons__title">
-                5 причин<br />
-                выбрать нас
-            </SectionTitle>
+        <section ref={wrapperRef} className="reasons section" id="reasons">
+            {/* Sticky header */}
+            <motion.div
+                className="reasons__header"
+                style={{
+                    position: "sticky",
+                    top: 0, // Фиксированное положение сверху
+                    zIndex: 10,
+                    opacity: headerOpacity, // Резкое изменение прозрачности
+                }}
+            >
+                <div className="container">
+                    <SectionTitle className="reasons__title">
+                        5 причин<br />
+                        выбрать нас
+                    </SectionTitle>
+                </div>
+            </motion.div>
 
+            {/* Список карточек */}
             <div className="reasons__list">
-                {/* Анимированная карточка */}
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={currentIndex} // Уникальный ключ для анимации
-                        className="reasons__card card"
-                        initial={{ opacity: 0, y: 50 }} // Начальное состояние
-                        animate={{ opacity: 1, y: 0 }} // Конечное состояние
-                        exit={{ opacity: 0, y: -50 }} // Исчезновение
-                        transition={{ duration: 0.35 }} // Длительность анимации
-                    >
-                        <ReactSVG src={cards[currentIndex]?.icon} className="card__num reactsvg" />
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">{cards[currentIndex]?.title}</h3>
-                            <p className="card__text">{cards[currentIndex]?.text}</p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
+                {cards.map((card, index) => {
+                    const isLastCard = index === cards.length - 1; // Проверка на последнюю карточку
+
+                    const cardOpacity = useTransform(
+                        scrollYProgress,
+                        [index / cards.length, (index + 0.8) / cards.length], // Ускоряем анимацию
+                        [1, 0],
+                        { clamp: true }
+                    );
+
+                    return (
+                        <motion.div
+                            key={index}
+                            className="reasons__card card"
+                            style={{
+                                opacity: isLastCard ? 1 : cardOpacity, // Последняя карточка всегда видима
+                            }}
+                        >
+                            <ReactSVG src={card.icon} className="card__num reactsvg" />
+                            <div className="card__shape"></div>
+                            <div className="card__wrapper">
+                                <h3 className="card__title">{card.title}</h3>
+                                <p className="card__text">{card.text}</p>
+                                <Button>Начать спринт</Button>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </section>
     );

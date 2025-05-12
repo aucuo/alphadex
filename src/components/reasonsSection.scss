@@ -2,12 +2,17 @@
 @import "@/styles/mixins";
 
 .reasons {
-    &__title {
-        margin: 0 40px 100px;
+    position: relative;
 
-        @include respond-to(desktop) {
-            margin: 0 24px 100px;
-        }
+    .container {
+        overflow: visible !important;
+    }
+
+    &__header {
+        position: sticky;
+        top: 20px;
+        z-index: 10;
+        padding: 20px 0;
     }
 
     &__list {
@@ -27,10 +32,15 @@
 
     .card {
         @include flex();
-        position: relative;
+        position: sticky;
+        top: 200px;
         width: 100%;
         max-width: 1300px;
         padding: 15px 0 15px 30px;
+
+        @include respond-to(desktop) {
+            top: 150px;
+        }
 
         &__num {
             position: absolute;
