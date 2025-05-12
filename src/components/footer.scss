@@ -29,11 +29,21 @@
         width: 265px;
         height: auto;
         margin-bottom: 32px;
+
+        @media (max-width: 600px) {
+            margin: 0 auto 32px;
+        }
     }
 
     &__buttons {
         @include flex();
+        flex-wrap: wrap;
         gap: 30px;
+
+        @media (max-width: 600px) {
+            gap: 10px;
+            justify-content: center;
+        }
     }
 
     &__button {

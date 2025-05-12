@@ -8,13 +8,6 @@ import {ReactSVG} from "react-svg";
 import {Button} from "@/components/ui/button.tsx";
 import SectionTitle from "./components/sectionTitle";
 
-import Shape1Icon from "@/assets/svg/abstract-shape1.svg"
-import Shape2Icon from "@/assets/svg/abstract-shape2.svg"
-import R1Icon from "@/assets/svg/r1.svg"
-import R2Icon from "@/assets/svg/r2.svg"
-import R3Icon from "@/assets/svg/r3.svg"
-import R4Icon from "@/assets/svg/r4.svg"
-import R5Icon from "@/assets/svg/r5.svg"
 import DiscountIcon from "@/assets/svg/discount-badge.svg"
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion.tsx";
 import {Input} from "@/components/ui/input.tsx";
@@ -34,6 +27,8 @@ import TelegramIcon from "@/assets/svg/soc-telegram.svg";
 import ArrowRightIcon from "@/assets/svg/arrow-right.svg";
 import Footer from "@/components/footer.tsx";
 import TargetSection from "@/components/targetSection.tsx";
+import WhyUsSection from "@/components/whyUsSection.tsx";
+import ReasonsSection from "@/components/reasonsSection.tsx";
 
 function App() {
 
@@ -53,138 +48,9 @@ function App() {
                     <img className="hero__coin hero__coin--left" src={CoinsLImage} alt="Монеты крипта"/>
                     <img className="hero__coin hero__coin--right" src={CoinsRImage} alt="Монеты крипта"/>
                 </section>
-                <section className="why-us section" id="why-us">
-                    <SectionTitle className="why-us__title">
-                        Почему<br/>
-                        мы
-                    </SectionTitle>
-
-                    <div className="why-us__list">
-                        <div className="why-us__card card">
-                            <ReactSVG src={Shape2Icon} className="card__shape reactsvg"/>
-                            <h3 className="card__title">
-                                Самое большое
-                            </h3>
-                            <p className="card__text">
-                                Сообщество DEX-трейдеров
-                                в СНГ
-                            </p>
-                            <ReactSVG src={Shape2Icon} className="card__shape reactsvg"/>
-                        </div>
-                        <div className="why-us__card card">
-                            <ReactSVG src={Shape2Icon} className="card__shape reactsvg"/>
-                            <h3 className="card__title">
-                                350+
-                            </h3>
-                            <p className="card__text">
-                                Прошли SPRINT
-                            </p>
-                            <ReactSVG src={Shape2Icon} className="card__shape reactsvg"/>
-                        </div>
-                        <div className="why-us__card card">
-                            <ReactSVG src={Shape1Icon} className="card__shape reactsvg"/>
-                            <h3 className="card__title">
-                                99,9%
-                            </h3>
-                            <p className="card__text">
-                                Спринтеров готовы нас рекомендовать
-                            </p>
-                            <ReactSVG src={Shape1Icon} className="card__shape reactsvg"/>
-                        </div>
-                        <div className="why-us__card card">
-                            <ReactSVG src={Shape1Icon} className="card__shape reactsvg"/>
-                            <h3 className="card__title">
-                                5+
-                            </h3>
-                            <p className="card__text">
-                                Лет в криптоиндустрии, 3 года из которых в DEX
-                            </p>
-                            <ReactSVG src={Shape1Icon} className="card__shape reactsvg"/>
-                        </div>
-                    </div>
-                </section>
+                <WhyUsSection/>
             </div>
-            <section className="reasons section" id="reasons">
-                <SectionTitle className="reasons__title">
-                    5 причин<br/>
-                    выбрать нас
-                </SectionTitle>
-                <div className="reasons__list">
-                    <div className="reasons__card card">
-                        <ReactSVG src={R1Icon} className="card__num reactsvg"/>
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">
-                                Глубина
-                            </h3>
-                            <p className="card__text">
-                                Вы получите не просто теорию - вы полностью
-                                погрузитесь в DEX
-                            </p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </div>
-                    <div className="reasons__card card">
-                        <ReactSVG src={R2Icon} className="card__num reactsvg"/>
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">
-                                поддержка
-                            </h3>
-                            <p className="card__text">
-                                Мы всегда на связи, готовы ответить на вопросы
-                                и поможем на каждом этапе вашего пути,
-                                обеспечивая уверенность и поддержку
-                            </p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </div>
-                    <div className="reasons__card card">
-                        <ReactSVG src={R3Icon} className="card__num reactsvg"/>
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">
-                                практика
-                            </h3>
-                            <p className="card__text">
-                                Мы передаём реальный практический опыт рыночных ситуаций,
-                                чтобы вы могли сразу применять полученные знания
-                                и не терять время на теорию
-                            </p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </div>
-                    <div className="reasons__card card">
-                        <ReactSVG src={R4Icon} className="card__num reactsvg"/>
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">
-                                гайды
-                            </h3>
-                            <p className="card__text">
-                                Вы получите доступ к подробным материалам,
-                                которые помогут вам лучше ориентироваться в мире DEX
-                            </p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </div>
-                    <div className="reasons__card card">
-                        <ReactSVG src={R5Icon} className="card__num reactsvg"/>
-                        <div className="card__shape"></div>
-                        <div className="card__wrapper">
-                            <h3 className="card__title">
-                                клуб
-                            </h3>
-                            <p className="card__text">
-                                Вы станете частью закрытого клуба трейдеров, в котором повысите свой скилл, получите
-                                доступ к
-                                инсайдерской информации и всегда будете в тренде нарратива
-                            </p>
-                            <Button>Начать спринт</Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ReasonsSection/>
             <TargetSection/>
             <div className="container">
                 <section className="products section" id="products">

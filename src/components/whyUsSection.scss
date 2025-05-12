@@ -1,0 +1,71 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.why-us {
+    &__title {
+        margin-bottom: 150px;
+    }
+
+    &__list {
+        @include flex(space-between, stretch, row, wrap);
+        gap: 50px;
+
+        @include respond-to(desktop) {
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    .card {
+        @include flex(center, center, column);
+        position: relative;
+        flex: 1;
+        min-width: 330px;
+        padding: 0 24px;
+        background-color: $primary;
+        color: #000;
+        border-radius: 40px;
+        height: 460px;
+
+        @media (max-width: 1590px) {
+            min-width: 500px;
+            height: 660px;
+        }
+
+        @include respond-to(large) {
+            min-width: 360px;
+        }
+
+        @include respond-to(desktop) {
+            width: 100%;
+            min-width: unset;
+            max-width: 480px;
+            min-height: 500px;
+            flex: 1;
+        }
+
+        &__shape {
+            position: absolute;
+
+            &:first-child {
+                inset: -2px -2px auto;
+                transform: rotate(180deg);
+            }
+
+            &:last-child {
+                inset: auto -2px -2px;
+            }
+        }
+
+        &__title {
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        &__text {
+            font-size: 15px;
+            text-align: center;
+        }
+    }
+}

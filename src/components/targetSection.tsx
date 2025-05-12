@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import './targetSection.scss';
 import SectionTitle from "@/components/sectionTitle.tsx";
 
@@ -7,55 +9,86 @@ const TargetSection: React.FC = () => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const startScrollPosition = useRef<number | null>(null);
 
+    // Анимация для выплывания элементов
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+        triggerOnce: true, // Анимация запускается только один раз
+        threshold: 0.1, // Уменьшите порог видимости до 10%
+        rootMargin: '0px 0px -50px 0px', // Учитывайте нижнюю часть экрана
+    });
+
+    useEffect(() => {
+        if (inView) {
+            controls.start('visible'); // Запускаем анимацию, когда элемент становится видимым
+        }
+    }, [controls, inView]);
+
     useEffect(() => {
         if (!wrapperRef.current || !containerRef.current) return;
 
-        // Сохраняем начальную позицию скролла страницы
         const handleScroll = () => {
             if (!wrapperRef.current || !containerRef.current) return;
 
-            // Получаем текущую позицию target__wrapper
             const currentRect = wrapperRef.current.getBoundingClientRect();
 
-            // Проверяем, достиг ли элемент верхней части экрана (sticky)
-            const isSticky = currentRect.top <= 60; // 60px - значение top для sticky
+            const isSticky = currentRect.top <= 60;
 
             if (isSticky) {
-                // Если начальная позиция скролла еще не установлена, сохраняем ее
                 if (startScrollPosition.current === null) {
                     startScrollPosition.current = window.scrollY;
                 }
 
-                // Вычисляем, насколько прокручена страница относительно начальной позиции
                 const scrolledDistance = window.scrollY - (startScrollPosition.current || 0);
 
-                // Преобразуем это расстояние в горизонтальное смещение
-                const scrollMultiplier = 1.5; // Коэффициент преобразования
+                const scrollMultiplier = 1.5;
                 const horizontalOffset = Math.max(0, scrolledDistance * scrollMultiplier);
 
-                // Ограничиваем горизонтальное смещение максимальной шириной контейнера
                 const maxOffset = containerRef.current.scrollWidth - window.innerWidth;
                 const clampedOffset = Math.min(horizontalOffset, maxOffset);
 
-                // Применяем transform к контейнеру
                 containerRef.current.style.transform = `translateX(-${clampedOffset}px)`;
             } else {
-                // Если элемент больше не sticky, сбрасываем начальную позицию скролла
                 startScrollPosition.current = null;
-
-                // Возвращаем контейнер в исходное положение
                 containerRef.current.style.transform = `translateX(0px)`;
             }
         };
 
-        // Добавляем обработчик события скролла
         window.addEventListener('scroll', handleScroll);
 
-        // Очищаем обработчик при размонтировании компонента
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    // Варианты анимации для стрелки с эффектом bounce
+    const arrowVariants = (index: number) => ({
+        hidden: { opacity: 0, x: -50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring', // Используем физику пружины
+                stiffness: 100, // Жесткость пружины
+                damping: 10, // Затухание (меньше значение -> больше отскок)
+                delay: index, // Задержка зависит от индекса
+            },
+        },
+    });
+
+    // Варианты анимации для текстового блока с эффектом bounce
+    const infoVariants = (index: number) => ({
+        hidden: { opacity: 0, x: -50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring', // Используем физику пружины
+                stiffness: 100, // Жесткость пружины
+                damping: 10, // Затухание (меньше значение -> больше отскок)
+                delay: index + 2, // Задержка зависит от индекса
+            },
+        },
+    });
 
     return (
         <section className="target section" id="target">
@@ -69,27 +102,51 @@ const TargetSection: React.FC = () => {
                     </SectionTitle>
                 </div>
                 <div className="ills target__ills">
-                    <div
-                        ref={containerRef}
+                    {/* Анимированный контейнер */}
+                    <motion.div
+                        ref={(el) => {
+                            containerRef.current = el;
+                            ref(el); // Передаем ссылку в useInView
+                        }}
                         className="ills__container container"
                     >
                         {/* Первый элемент */}
-                        <div className="ill target__ill">
-                            <div className="ill__arrow"></div>
-                            <div className="ill__info">
+                        <motion.div className="ill target__ill">
+                            <motion.div
+                                className="ill__arrow"
+                                variants={arrowVariants(0)} // Индекс 0
+                                initial="hidden"
+                                animate={controls}
+                            />
+                            <motion.div
+                                className="ill__info"
+                                variants={infoVariants(0)} // Индекс 0
+                                initial="hidden"
+                                animate={controls}
+                            >
                                 <div className="ill__info-dec"></div>
                                 <div className="ill__title">Новичкам</div>
                                 <div className="ill__text">
                                     Если вы только начинаете свой путь - мы поможем избежать ошибок и сделать первые шаги
                                     к осознанной торговле без страха.
                                 </div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
                         {/* Второй элемент */}
-                        <div className="ill ill--center target__ill">
-                            <div className="ill__arrow"></div>
-                            <div className="ill__info ill__info--center">
+                        <motion.div className="ill ill--center target__ill">
+                            <motion.div
+                                className="ill__arrow"
+                                variants={arrowVariants(1)} // Индекс 1
+                                initial="hidden"
+                                animate={controls}
+                            />
+                            <motion.div
+                                className="ill__info ill__info--center"
+                                variants={infoVariants(1)} // Индекс 1
+                                initial="hidden"
+                                animate={controls}
+                            >
                                 <div className="ill__title">Опытным трейдерам</div>
                                 <div className="ill__text">
                                     Торгуете на CEX, но хотите правильно подойти к DEX, систематизировать знания и
@@ -97,22 +154,32 @@ const TargetSection: React.FC = () => {
                                     и профессиональную поддержку.
                                 </div>
                                 <div className="ill__info-dec"></div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
                         {/* Третий элемент */}
-                        <div className="ill target__ill">
-                            <div className="ill__arrow"></div>
-                            <div className="ill__info">
+                        <motion.div className="ill target__ill">
+                            <motion.div
+                                className="ill__arrow"
+                                variants={arrowVariants(2)} // Индекс 2
+                                initial="hidden"
+                                animate={controls}
+                            />
+                            <motion.div
+                                className="ill__info"
+                                variants={infoVariants(2)} // Индекс 2
+                                initial="hidden"
+                                animate={controls}
+                            >
                                 <div className="ill__info-dec"></div>
                                 <div className="ill__title">DEX-трейдерам</div>
                                 <div className="ill__text">
                                     Уже в теме DEX-торговли, но хотите углубиться, начать зарабатывать и стать частью
                                     сильного комьюнити? Вы в нужном месте.
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </section>

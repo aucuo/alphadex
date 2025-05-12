@@ -10,7 +10,9 @@ const Footer = () => {{
         <div className="footer">
             <div className="footer__row">
                 <div className="footer__col">
-                    <ReactSVG className="footer__logo reactsvg" src={LogoIcon}/>
+                    <a href="#hero">
+                        <ReactSVG className="footer__logo reactsvg" src={LogoIcon}/>
+                    </a>
                     <div className="footer__buttons">
                         <Button className="footer__button" size="sm">Начать Sprint</Button>
                         <Button className="footer__button footer__button--outline" variant="outlinePrimary" size="sm">Поддержка</Button>
