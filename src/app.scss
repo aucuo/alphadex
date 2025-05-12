@@ -130,6 +130,7 @@
 .products {
     &__title {
         margin-bottom: 100px;
+        margin-top: 80px;
     }
 
     &__list {
@@ -419,7 +420,6 @@
         @include flex(space-between, stretch);
         gap: 40px;
         margin-top: -150px;
-
         animation: scroll 20s linear infinite;
         counter-reset: item;
     }

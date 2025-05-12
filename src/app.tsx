@@ -355,7 +355,7 @@ function App() {
                 </section>
             </div>
             <section className="qr section">
-                <div className=" container">
+                <div className="qr__container container">
                     <div className="qr__text">
                         <h2 className="qr__title">
                             Торгуй умнее -<br/>
@@ -366,24 +366,24 @@ function App() {
                             <Button size="sm">Торговать</Button>
                         </div>
                     </div>
-                </div>
-                <div className="qr__list">
+                    <div className="qr__list">
 
-                    <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
 
-                    <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
 
-                    <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
-                    <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes1Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes2Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes3Image} alt="Наши результаты"/>
+                        <img className="qr__res" src={QRRes4Image} alt="Наши результаты"/>
 
+                    </div>
                 </div>
             </section>
             <div className="container">

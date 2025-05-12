@@ -1,64 +1,66 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import './targetSection.scss';
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import "./targetSection.scss";
 import SectionTitle from "@/components/sectionTitle.tsx";
 
 const TargetSection: React.FC = () => {
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
-    const startScrollPosition = useRef<number | null>(null);
+    const [containerWidth, setContainerWidth] = useState(0);
+    const [parentWidth, setParentWidth] = useState(0);
 
     // Анимация для выплывания элементов
     const controls = useAnimation();
     const [ref, inView] = useInView({
-        triggerOnce: true, // Анимация запускается только один раз
-        threshold: 0.1, // Уменьшите порог видимости до 10%
-        rootMargin: '0px 0px -50px 0px', // Учитывайте нижнюю часть экрана
+        triggerOnce: true,
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
     });
 
     useEffect(() => {
         if (inView) {
-            controls.start('visible'); // Запускаем анимацию, когда элемент становится видимым
+            controls.start("visible");
         }
     }, [controls, inView]);
 
     useEffect(() => {
-        if (!wrapperRef.current || !containerRef.current) return;
+        if (containerRef.current) {
+            const container = containerRef.current;
+            const parent = container.parentElement;
 
-        const handleScroll = () => {
-            if (!wrapperRef.current || !containerRef.current) return;
-
-            const currentRect = wrapperRef.current.getBoundingClientRect();
-
-            const isSticky = currentRect.top <= 60;
-
-            if (isSticky) {
-                if (startScrollPosition.current === null) {
-                    startScrollPosition.current = window.scrollY;
+            const resizeObserver = new ResizeObserver(() => {
+                setContainerWidth(container.offsetWidth);
+                if (parent) {
+                    setParentWidth(parent.offsetWidth);
                 }
+            });
 
-                const scrolledDistance = window.scrollY - (startScrollPosition.current || 0);
-
-                const scrollMultiplier = 1.5;
-                const horizontalOffset = Math.max(0, scrolledDistance * scrollMultiplier);
-
-                const maxOffset = containerRef.current.scrollWidth - window.innerWidth;
-                const clampedOffset = Math.min(horizontalOffset, maxOffset);
-
-                containerRef.current.style.transform = `translateX(-${clampedOffset}px)`;
-            } else {
-                startScrollPosition.current = null;
-                containerRef.current.style.transform = `translateX(0px)`;
+            resizeObserver.observe(container);
+            if (parent) {
+                resizeObserver.observe(parent);
             }
-        };
 
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+            return () => {
+                resizeObserver.disconnect();
+            };
+        }
     }, []);
+
+    // Scroll pin setup
+    const { scrollYProgress } = useScroll({
+        target: wrapperRef,
+        offset: ["start start", "end end"],
+    });
+
+    const maxOffset = containerWidth - parentWidth;
+
+    const containerX = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [0, -maxOffset],
+        { clamp: true }
+    );
 
     // Варианты анимации для стрелки с эффектом bounce
     const arrowVariants = (index: number) => ({
@@ -67,10 +69,10 @@ const TargetSection: React.FC = () => {
             opacity: 1,
             x: 0,
             transition: {
-                type: 'spring', // Используем физику пружины
-                stiffness: 100, // Жесткость пружины
-                damping: 10, // Затухание (меньше значение -> больше отскок)
-                delay: index, // Задержка зависит от индекса
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: index * 0.3,
             },
         },
     });
@@ -82,45 +84,40 @@ const TargetSection: React.FC = () => {
             opacity: 1,
             x: 0,
             transition: {
-                type: 'spring', // Используем физику пружины
-                stiffness: 100, // Жесткость пружины
-                damping: 10, // Затухание (меньше значение -> больше отскок)
-                delay: index + 2, // Задержка зависит от индекса
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: index * 0.3 + 0.6,
             },
         },
     });
 
     return (
-        <section className="target section" id="target">
-            <div
-                ref={wrapperRef}
-                className="target__wrapper"
-            >
-                <div className="container">
-                    <SectionTitle className="target__title">
-                        Кому подойдет
-                    </SectionTitle>
-                </div>
+        <section ref={wrapperRef} className="target section" id="target">
+            <div className="target__wrapper container">
+                <SectionTitle className="target__title">Кому подойдет</SectionTitle>
+
                 <div className="ills target__ills">
                     {/* Анимированный контейнер */}
                     <motion.div
                         ref={(el) => {
                             containerRef.current = el;
-                            ref(el); // Передаем ссылку в useInView
+                            ref(el);
                         }}
-                        className="ills__container container"
+                        className="ills__container"
+                        style={{ x: containerX }}
                     >
                         {/* Первый элемент */}
                         <motion.div className="ill target__ill">
                             <motion.div
                                 className="ill__arrow"
-                                variants={arrowVariants(0)} // Индекс 0
+                                variants={arrowVariants(0)}
                                 initial="hidden"
                                 animate={controls}
                             />
                             <motion.div
                                 className="ill__info"
-                                variants={infoVariants(0)} // Индекс 0
+                                variants={infoVariants(0)}
                                 initial="hidden"
                                 animate={controls}
                             >
@@ -137,13 +134,13 @@ const TargetSection: React.FC = () => {
                         <motion.div className="ill ill--center target__ill">
                             <motion.div
                                 className="ill__arrow"
-                                variants={arrowVariants(1)} // Индекс 1
+                                variants={arrowVariants(1)}
                                 initial="hidden"
                                 animate={controls}
                             />
                             <motion.div
                                 className="ill__info ill__info--center"
-                                variants={infoVariants(1)} // Индекс 1
+                                variants={infoVariants(1)}
                                 initial="hidden"
                                 animate={controls}
                             >
@@ -161,13 +158,13 @@ const TargetSection: React.FC = () => {
                         <motion.div className="ill target__ill">
                             <motion.div
                                 className="ill__arrow"
-                                variants={arrowVariants(2)} // Индекс 2
+                                variants={arrowVariants(2)}
                                 initial="hidden"
                                 animate={controls}
                             />
                             <motion.div
                                 className="ill__info"
-                                variants={infoVariants(2)} // Индекс 2
+                                variants={infoVariants(2)}
                                 initial="hidden"
                                 animate={controls}
                             >

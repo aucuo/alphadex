@@ -2,18 +2,22 @@
 @import "@/styles/mixins";
 
 .target {
-    min-height: 1500px;
-    padding-bottom: 120px;
-    margin-bottom: 150px;
+    position: relative;
+    height: 2000px;
 
-    @include respond-to(tablet) {
-        min-height: 2000px;
-        margin-bottom: 0;
+    @media (min-width: 1800px) {
+        height: fit-content;
     }
 
     &__wrapper {
         position: sticky;
-        top: 60px;
+        top: 0;
+        height: 100vh;
+        padding-top: 80px;
+
+        @media (min-width: 1800px) {
+            position: static;
+        }
     }
 
     .ills {
@@ -33,12 +37,25 @@
             @include flex(center, flex-start);
             min-width: 1920px;
 
+            @media (min-width: 1800px) {
+                min-width: unset;
+                width: 100%;
+            }
+
+            @include respond-to(desktop) {
+                min-width: 1400px;
+            }
+
+            @include respond-to(tablet) {
+                min-width: 1000px;
+            }
+
             &:before {
                 z-index: -1;
                 @include pseudo();
                 inset: 15px 0;
                 height: 50px;
-                background: linear-gradient(90deg, rgba(0, 240, 252, 0) 0%, rgba(0, 240, 252, 1) 50%, rgba(0, 240, 252, 0.2) 100%);
+                background: linear-gradient(90deg, rgba(0, 240, 252, 0) 0%, rgba(0, 240, 252, 1) 50%, rgba(0, 240, 252, 0) 100%);
             }
         }
     }
