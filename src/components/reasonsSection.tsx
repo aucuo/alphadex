@@ -103,7 +103,16 @@ const ReasonsSection: React.FC = () => {
                             <div className="card__wrapper">
                                 <h3 className="card__title">{card.title}</h3>
                                 <p className="card__text">{card.text}</p>
-                                <Button>Начать спринт</Button>
+                                <Button
+                                    onClick={() => {
+                                        const element = document.getElementById('questions');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
+                                    Начать спринт
+                                </Button>
                             </div>
                         </motion.div>
                     );

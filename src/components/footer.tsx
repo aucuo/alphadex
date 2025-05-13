@@ -14,8 +14,21 @@ const Footer = () => {{
                         <ReactSVG className="footer__logo reactsvg" src={LogoIcon}/>
                     </a>
                     <div className="footer__buttons">
-                        <Button className="footer__button" size="sm">Начать Sprint</Button>
-                        <Button className="footer__button footer__button--outline" variant="outlinePrimary" size="sm">Поддержка</Button>
+                        <Button className="footer__button" size="sm"
+                                onClick={() => {
+                                    const element = document.getElementById('questions');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                        >Начать Sprint</Button>
+                        <Button className="footer__button footer__button--outline" variant="outlinePrimary" size="sm"
+                                onClick={() => {
+                                    window.open("https://t.me/Alpha_Dex_Academy", "_blank");
+                                }}
+                        >
+                            Поддержка
+                        </Button>
                     </div>
                 </div>
                 <div className="footer__col footer__col--expand">
@@ -47,18 +60,18 @@ const Footer = () => {{
                             <a href="https://t.me/AlphaDEX_Academy" target="_blank" className="nav__link">
                                 telegram
                             </a>
-                            <a href="" target="_blank" className="nav__link">
+                            <a href="https://youtube.com/@alpha1_academy" target="_blank" className="nav__link">
                                 YOUTUBE
                             </a>
-                            <a href="" target="_blank" className="nav__link">
+                            <a href="https://X.com/alpha1_academy" target="_blank" className="nav__link">
                                 twitter (x)
                             </a>
-                            <a href="" target="_blank" className="nav__link nav__link--disabled">
+                            <div className="nav__link nav__link--disabled">
                                 debank personal
-                            </a>
-                            <a href="" target="_blank" className="nav__link nav__link--disabled">
+                            </div>
+                            <div className="nav__link nav__link--disabled">
                                 debank team
-                            </a>
+                            </div>
                         </div>
                         <div className="nav__col">
                             <div className="nav__title">

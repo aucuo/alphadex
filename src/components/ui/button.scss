@@ -12,8 +12,13 @@
     transition: .2s all ease-in-out;
     overflow: unset;
 
-    @include respond-to(desktop) {
+    @include respond-to(tablet) {
         padding: 16px 12px;
+    }
+
+    @include respond-to(phone) {
+        padding: 11px 6px;
+        font-size: 10px;
     }
 
     &:disabled {
@@ -87,14 +92,18 @@
 
     &--icon {
         font-family: 'Nomerok Mono', sans-serif;
-        width: 48px;
-        height: 48px;
-        font-size: 18px;
+        width: 72px;
+        height: 72px;
         padding: 0;
         border-radius: 72px;
 
-        @include respond-to(desktop) {
+        .reactsvg {
+            width: 26px;
+        }
 
+        @include respond-to(desktop) {
+            width: 40px;
+            height: 40px;
             .reactsvg {
                 width: 16px;
             }

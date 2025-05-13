@@ -3,6 +3,7 @@ import './app.scss';
 
 import RocketIcon from "@/assets/svg/rocket-logo.svg";
 import CoinsLImage from "@/assets/images/coins-left.png";
+import CoinsL2Image from "@/assets/images/coins-left2.png";
 import CoinsRImage from "@/assets/images/coins-right.png";
 import {ReactSVG} from "react-svg";
 import {Button} from "@/components/ui/button.tsx";
@@ -10,10 +11,6 @@ import SectionTitle from "./components/sectionTitle";
 
 import DiscountIcon from "@/assets/svg/discount-badge.svg"
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion.tsx";
-import {Input} from "@/components/ui/input.tsx";
-
-import SonicImage from "@/assets/images/sonic.png"
-import HaticoImage from "@/assets/images/hatico.png"
 import QRImage from "@/assets/images/qr.jpg"
 import QRRes1Image from "@/assets/images/qr-res1.png"
 import QRRes2Image from "@/assets/images/qr-res2.png"
@@ -29,6 +26,7 @@ import Footer from "@/components/footer.tsx";
 import TargetSection from "@/components/targetSection.tsx";
 import WhyUsSection from "@/components/whyUsSection.tsx";
 import ReasonsSection from "@/components/reasonsSection.tsx";
+import QuestionsSection from "@/components/questionsSection.tsx";
 
 function App() {
 
@@ -42,10 +40,23 @@ function App() {
                         <ReactSVG src={RocketIcon} className="reactsvg"/>
                         <div className="hero__text">
                             <h1>DEX IT`S EASY</h1>
+                            <p>Твой путь от новичка до профи начинается здесь</p>
                         </div>
+                        <Button
+                            onClick={() => {
+                                const element = document.getElementById('questions');
+                                if (element) {
+                                    element.scrollIntoView({behavior: 'smooth'});
+                                }
+                            }}
+                        >
+                            Начать SPRINT
+                        </Button>
+
                     </div>
                     <div className="hero__circles"></div>
                     <img className="hero__coin hero__coin--left" src={CoinsLImage} alt="Монеты крипта"/>
+                    <img className="hero__coin hero__coin--left2" src={CoinsL2Image} alt="Монеты крипта"/>
                     <img className="hero__coin hero__coin--right" src={CoinsRImage} alt="Монеты крипта"/>
                 </div>
             </section>
@@ -106,7 +117,14 @@ function App() {
                                     </div>
                                     <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
                                 </div>
-                                <Button className="card__button" variant="black" size="sm">
+                                <Button className="card__button" variant="black" size="sm"
+                                        onClick={() => {
+                                            const element = document.getElementById('questions');
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }}
+                                >
                                     Стартовать с Lite
                                 </Button>
                             </div>
@@ -160,7 +178,14 @@ function App() {
                                     </div>
                                     <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
                                 </div>
-                                <Button className="card__button" variant="outlinePrimary" size="sm">
+                                <Button className="card__button" variant="outlinePrimary" size="sm"
+                                        onClick={() => {
+                                            const element = document.getElementById('questions');
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }}
+                                >
                                     Пройти SPRINT
                                 </Button>
                             </div>
@@ -221,7 +246,14 @@ function App() {
                                     </div>
                                     <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
                                 </div>
-                                <Button className="card__button" variant="black" size="sm">
+                                <Button className="card__button" variant="black" size="sm"
+                                        onClick={() => {
+                                            const element = document.getElementById('questions');
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }}
+                                >
                                     Стать PRO
                                 </Button>
                             </div>
@@ -326,36 +358,7 @@ function App() {
                     </Accordion>
                 </div>
             </section>
-            <section className="questions section">
-                <div className="container">
-                    <SectionTitle className="questions__title">
-                        Остались<br/>
-                        вопросы?
-                    </SectionTitle>
-                    <img className="questions__hero questions__hero--sonic" src={SonicImage} alt="Соник читает книжку"/>
-                    <img className="questions__hero questions__hero--hatico" src={HaticoImage}
-                         alt="Хатико в шлеме викинга читает книгу"/>
-                    <div className="questions">
-                        <div className="questions__middle middle">
-                            <p className="middle__text">
-                                Сомневаетесь или хотите узнать больше - оставьте заявку ниже, и мы свяжемся с вами,
-                                чтобы
-                                ответить на все ваши вопросы и помочь выбрать подходящий SPRINT
-                            </p>
-                            <h4 className="middle__title">
-                                Заполните форму ниже
-                            </h4>
-                            <Input className="middle__input" placeholder="Ваше имя (обязательно)" type="text"
-                                   maxLength={20} minLength={2} required/>
-                            <Input className="middle__input" placeholder="Ваш telegram (обязательно)" type="text"
-                                   maxLength={20} minLength={2} required/>
-                            <Input className="middle__input" placeholder="Ваш e-mail (обязательно)" type="text"
-                                   maxLength={20} minLength={2} required/>
-                            <Button size="sm">Оставить заявку</Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <QuestionsSection/>
             <section className="qr section">
                 <div className="qr__container container">
                     <div className="qr__text">
@@ -367,7 +370,7 @@ function App() {
                             <img className="qr__image" src={QRImage} alt="QR код"/>
                             <Button size="sm"
                                     onClick={() => {
-                                        window.open("https://t.me/resolve?domain=alpha_web3_bot&start=academy", "_blank");
+                                        window.open("https://t.me/alpha_web3_bot", "_blank");
                                     }}
                             >
                                 Торговать
@@ -435,7 +438,11 @@ function App() {
                                 от экспертов DEX-трейдинга
                             </p>
                         </div>
-                        <Button className="soc__button" variant="outline" size="sm">
+                        <Button className="soc__button" variant="outline" size="sm"
+                                onClick={() => {
+                                    window.open("https://youtube.com/@alpha1_academy", "_blank");
+                                }}
+                        >
                             Смотреть на YouTube
                             <ReactSVG className="reactsvg" src={ArrowRightIcon}/>
                         </Button>
@@ -451,7 +458,11 @@ function App() {
                                 альфа-новости в формате коротких постов
                             </p>
                         </div>
-                        <Button className="soc__button" variant="outline" size="sm">
+                        <Button className="soc__button" variant="outline" size="sm"
+                                onClick={() => {
+                                    window.open("https://X.com/alpha1_academy", "_blank");
+                                }}
+                        >
                             Читать в Twitter
                             <ReactSVG className="reactsvg" src={ArrowRightIcon}/>
                         </Button>

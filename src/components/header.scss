@@ -6,9 +6,30 @@
     gap: 20px;
     padding: 26px 0;
 
+    &__logo {
+        width: 227px;
+
+        @include respond-to(tablet) {
+            width: 127px;
+        }
+
+        @include respond-to(phone) {
+            width: 90px;
+        }
+    }
+
     &__nav {
         @include flex(space-between, center);
         gap: 50px;
+        font-size: 30px;
+
+        @media (max-width: 1700px) {
+            font-size: 20px;
+        }
+
+        @media (max-width: 1500px) {
+            font-size: 16px;
+        }
 
         @include respond-to('xxl') {
             z-index: 50;
@@ -35,13 +56,20 @@
     &__buttons {
         @include flex(space-between, center);
         gap: 24px;
+
+        @include respond-to(tablet) {
+            gap: 8px;
+        }
     }
 
     &__button {
         position: relative;
         z-index: 100;
-        padding: 10px 11px !important;
-        font-size: 12px;
+        font-size: 20px;
+
+        @include respond-to(desktop) {
+            font-size: 14px;
+        }
 
         &:after,
         &:before {
@@ -49,6 +77,7 @@
         }
 
         &--sprint {
+            font-size: 16px;
             @include respond-to(xxl) {
                 display: none !important;
             }

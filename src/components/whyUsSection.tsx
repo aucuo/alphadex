@@ -15,21 +15,21 @@ const WhyUsSection: React.FC = () => {
             opacity: 1,
             transition: {
                 delayChildren: 0.3, // Задержка перед началом анимации дочерних элементов
-                staggerChildren: 2, // Интервал между анимациями дочерних элементов
+                staggerChildren: 0.2, // Интервал между анимациями дочерних элементов
             },
         },
     };
 
     // Варианты анимации для каждой карточки
     const cardVariants = {
-        hidden: { opacity: 0, x: 500 }, // Начальное состояние (скрыто слева)
+        hidden: { opacity: 0, x: 50 }, // Начальное состояние (скрыто справа)
         visible: {
             opacity: 1,
             x: 0,
             transition: {
-                type: 'spring', // Используем физику пружины
-                stiffness: 200, // Жесткость пружины
-                damping: 8, // Затухание (для bounce-эффекта)
+                type: 'tween', // Линейная анимация
+                duration: 0.8, // Длительность анимации
+                ease: 'easeOut', // Плавное завершение анимации
             },
         },
     };
@@ -56,7 +56,7 @@ const WhyUsSection: React.FC = () => {
                         variants={cardVariants} // Применяем варианты анимации для карточек
                     >
                         <ReactSVG
-                            src={index % 2 === 0 ? Shape2Icon : Shape1Icon}
+                            src={index > 2 ? Shape1Icon : Shape2Icon}
                             className="card__shape reactsvg"
                         />
                         <h3 className="card__title">

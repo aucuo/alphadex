@@ -18,6 +18,13 @@
         height: 48px;
     }
 
+
+    @include respond-to(phone) {
+        font-size: 12px;
+        height: 30px;
+        border-radius: 8px;
+    }
+
     &__wrapper {
         position: relative;
         width: fit-content;
@@ -29,6 +36,11 @@
             inset: -5px;
             background: linear-gradient(0deg,rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
             border-radius: 15px;
+
+            @include respond-to(phone) {
+                inset: -2px;
+                border-radius: 8px;
+            }
         }
     }
 

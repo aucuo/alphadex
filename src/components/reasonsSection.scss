@@ -4,6 +4,27 @@
 .reasons {
     position: relative;
 
+    &:before,
+    &:after {
+        z-index: -1;
+        @include pseudo();
+        background: url('@/assets/svg/section-carve.svg') center top / 100% no-repeat;
+        inset: 0 30px 0;
+        opacity: .4;
+    }
+
+    &:after {
+        transform: rotate(180deg);
+    }
+
+    @include respond-to(desktop) {
+        padding: 20px 0;
+    }
+
+    &__header {
+        margin-bottom: 40px;
+    }
+
     .container {
         overflow: visible !important;
     }
@@ -19,7 +40,6 @@
         @include flex(stretch, flex-end, column);
         gap: 100px;
         padding: 40px 0 40px 40px;
-        background-image: url('@/assets/svg/reasons-bg.svg');
 
         @include respond-to(desktop) {
             padding-left: 24px;
@@ -27,6 +47,10 @@
 
         @include respond-to(desktop) {
             gap: 85px;
+        }
+
+        @media (max-width: 600px) {
+            gap: 40px;
         }
     }
 
@@ -38,8 +62,21 @@
         max-width: 1300px;
         padding: 15px 0 15px 30px;
 
+        @media (max-width: 1550px) {
+            max-width: 1000px;
+        }
+
+        @include respond-to(large) {
+            max-width: 800px;
+        }
+
         @include respond-to(desktop) {
+            max-width: 600px;
             top: 150px;
+        }
+
+        @include respond-to(tablet) {
+            max-width: unset;
         }
 
         &__num {
@@ -48,7 +85,7 @@
             top: 50%;
             transform: translate(-100%, -50%);
 
-            @include respond-to(desktop) {
+            @include respond-to(tablet) {
                 display: none;
             }
         }
@@ -65,8 +102,9 @@
                 width: 130px;
             }
 
-            @include respond-to(phone) {
-                display: none;
+            @media (max-width: 600px) {
+                width: 66px;
+                background-size: cover;
             }
         }
 
@@ -83,9 +121,9 @@
                 padding: 0 60px;
             }
 
-            @include respond-to(phone) {
-                border-radius: 40px 0 0 40px;
-                padding: 0 20px;
+            @media (max-width: 600px) {
+                min-height: 240px;
+                padding: 0 45px;
             }
         }
 
@@ -103,8 +141,9 @@
             text-align: center;
             margin-bottom: 25px;
 
-            @include respond-to(desktop) {
-                font-size: 24px;
+            @media (max-width: 600px) {
+                font-size: 20px;
+                margin-bottom: 18px;
             }
         }
 
@@ -113,10 +152,23 @@
             text-align: center;
             max-width: 630px;
             margin-bottom: 45px;
+            text-transform: uppercase;
 
             @include respond-to(desktop) {
                 font-size: 16px;
             }
+
+            @media (max-width: 600px) {
+                max-width: 264px;
+                font-size: 7px;
+                letter-spacing: -5%;
+                margin-bottom: 11px;
+            }
+        }
+
+        .btn:after,
+        .btn:before{
+            content: unset !important;
         }
     }
 }

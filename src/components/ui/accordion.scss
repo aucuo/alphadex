@@ -13,6 +13,11 @@
             border-width: 3px;
             border-radius: 15px;
         }
+
+        @include respond-to(phone) {
+            padding: 8px 10px;
+            border-width: 2px;
+        }
     }
 
     &__header {
@@ -31,6 +36,11 @@
             width: 16px;
             right: 30px;
         }
+
+        @include respond-to(phone) {
+            width: 10px;
+            right: 16px;
+        }
     }
 
     &__trigger {
@@ -48,6 +58,11 @@
 
         @include respond-to(large) {
             font-size: 20px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 10px;
+            padding-right: 40px;
         }
 
         &_active {
@@ -77,6 +92,11 @@
         @include respond-to(large) {
             font-size: 15px;
             padding-top: 45px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 8px;
+            padding-top: 20px;
         }
     }
 }

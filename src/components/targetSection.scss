@@ -9,6 +9,14 @@
         height: fit-content;
     }
 
+    &__title {
+        width: fit-content;
+
+        @include respond-to(tablet) {
+            margin-left: 0;
+        }
+    }
+
     &__wrapper {
         position: sticky;
         top: 0;

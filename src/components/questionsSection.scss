@@ -1,0 +1,103 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.questions {
+    margin-bottom: 200px;
+    overflow: hidden;
+
+    .container {
+        padding-top: 160px;
+
+        @include respond-to(phone) {
+            padding-top: 80px;
+        }
+    }
+
+    @include respond-to(large) {
+        margin-bottom: 0;
+    }
+
+    &__title {
+        margin-bottom: 100px;
+
+        @include respond-to(phone) {
+            margin-bottom: 50px;
+        }
+    }
+
+    &__hero {
+        z-index: -1;
+        position: absolute;
+
+        &--sonic {
+            top: 400px;
+            left: -100px;
+
+            @include respond-to(large) {
+                display: none;
+            }
+        }
+
+        &--hatico {
+            top: 0px;
+            right: -100px;
+
+            @include respond-to(large) {
+                width: 300px;
+            }
+
+            @include respond-to(phone) {
+                width: 170px;
+                right: -30px;
+                top: 40px;
+            }
+        }
+    }
+
+    .middle {
+        @include flex(center, center, column);
+        gap: 40px;
+        max-width: 700px;
+        padding: 0 20px;
+        font-size: 25px;
+        text-align: center;
+        margin: 0 auto;
+
+        @include respond-to(tablet) {
+            font-size: 16px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 13px;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        &__input {
+            width: 100%;
+        }
+
+        &__text {
+            letter-spacing: -.05em;
+        }
+
+        &__title {
+            letter-spacing: .05em;
+            color: $primary;
+            text-transform: uppercase;
+        }
+    }
+
+    .btn {
+        &:after,
+        &:before {
+            display: none;
+        }
+
+
+        @include respond-to(phone) {
+            height: 30px;
+            padding: 7px;
+        }
+    }
+}

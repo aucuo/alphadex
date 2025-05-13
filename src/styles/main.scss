@@ -22,6 +22,14 @@
 
 body {
     overflow-x: hidden;
+    background-image: url('@/assets/svg/hero-circles.svg');
+    inset: 0 -60px auto;
+    background-position: top -200px center;
+    background-repeat: no-repeat;
+
+    @include respond-to(desktop) {
+        background-image: url('@/assets/svg/hero-circles-t.svg');
+    }
 }
 
 .root {

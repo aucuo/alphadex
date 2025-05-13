@@ -5,8 +5,16 @@
     position: relative;
     padding: 80px 0;
 
+    @include respond-to(phone) {
+        padding: 45px 0;
+    }
+
     &:first-child {
         padding: 0 0 80px;
+
+        @include respond-to(phone) {
+            padding: 0 0 45px;
+        }
     }
 
     &__title {
@@ -14,7 +22,7 @@
         width: fit-content;
         font-size: 36px;
         text-transform: uppercase;
-        margin-left: 20px;
+        margin-left: 22px;
 
         &:after,
         &:before {
@@ -47,6 +55,10 @@
             }
         }
 
+        @include respond-to(phone) {
+            font-size: 24px;
+        }
+
         &-background {
             z-index: -1;
             position: absolute;
@@ -62,9 +74,18 @@
     .container {
         @include flex(flex-start, stretch, column);
         position: relative;
-        min-height: 100vh;
+        min-height: 115vh;
         overflow: hidden;
         max-width: unset;
+
+        @include respond-to(phone) {
+            min-height: 80vh;
+            margin-bottom: 80px;
+        }
+    }
+
+    &__text {
+        @include flex(center, center, column);
     }
 
     &__wrapper {
@@ -77,20 +98,60 @@
             gap: 74px;
         }
 
+        @include respond-to(phone) {
+            gap: 35px;
+            padding-bottom: 30px;
+        }
+
         .reactsvg {
             width: 190px;
 
             @include respond-to(desktop) {
                 width: 160px;
             }
+
+            @include respond-to(phone) {
+                width: 80px;
+            }
         }
 
         h1 {
-            font-size: 96px;
+            font-size: 112px;
             text-align: center;
 
             @include respond-to(desktop) {
-                font-size: 56px;
+                font-size: 102px;
+            }
+
+            @include respond-to(tablet) {
+                max-width: 354px;
+                line-height: 100%;
+            }
+
+            @include respond-to(phone) {
+                font-size: 48px;
+                letter-spacing: .05em;
+                line-height: 53px;
+                max-width: 180px;
+            }
+        }
+        p {
+            text-transform: uppercase;
+            font-size: 33px;
+            text-align: center;
+            letter-spacing: .1em;
+
+            @include respond-to(desktop) {
+                font-size: 20px;
+            }
+
+            @include respond-to(tablet) {
+                max-width: 340px;
+            }
+
+            @include respond-to(phone) {
+                font-size: 10px;
+                max-width: 160px;
             }
         }
     }
@@ -98,35 +159,57 @@
     &__circles {
         z-index: -2;
         position: absolute;
-        background-image: url('@/assets/svg/hero-circles.svg');
-        inset: 0 -60px auto;
-        height: 2200px;
-        background-position: top -200px center;
     }
 
     &__coin {
         z-index: -1;
         position: absolute;
-        width: 600px;
         height: auto;
 
-        @include respond-to(xxl) {
-            width: 400px;
+        &--left {
+            width: 450px;
+            height: auto;
+            inset: 134px auto auto 29px;
+
+            @include respond-to(large) {
+                width: 289px;
+                inset: 110px auto auto -11px;
+            }
+
+            @include respond-to(phone) {
+                width: 133px;
+                inset: 70px auto auto 4px;
+            }
         }
 
-        &--left {
-            inset: 100px auto auto -150px;
+        &--left2 {
+            width: 450px;
+            height: auto;
+            inset: auto auto 0 184px;
 
-            @include respond-to(xxl) {
-                inset: 200px auto 30px -150px;
+            @include respond-to(large) {
+                width: 229px;
+                inset: auto auto 200px -80px;
+            }
+
+            @include respond-to(phone) {
+                width: 177px;
+                inset: auto auto 70px -70px;
             }
         }
 
         &--right {
-            inset: 100px -200px auto auto;
+            width: 520px;
+            inset: auto 72px 0 auto;
 
-            @include respond-to(xxl) {
-                inset: auto -150px 100px auto;
+            @include respond-to(large) {
+                width: 334px;
+                inset: auto -125px 150px auto;
+            }
+
+            @include respond-to(phone) {
+                width: 164px;
+                inset: auto -61px 50px auto;
             }
         }
     }
@@ -145,6 +228,14 @@
         @include respond-to(large) {
             flex-direction: column !important;
         }
+
+        @include respond-to(large) {
+            flex-direction: column !important;
+        }
+
+        @include respond-to(phone) {
+            gap: 50px;
+        }
     }
 
     .card {
@@ -157,6 +248,18 @@
         min-height: 800px;
         flex: 1;
 
+        @include respond-to(tablet) {
+            max-width: 584px;
+            margin: 0 auto;
+        }
+
+        @include respond-to(phone) {
+            border-radius: 20px;
+            padding: 15px 20px;
+            min-height: 400px;
+            margin: 0;
+        }
+
         &:nth-child(2) {
             background-color: #000;
             color: $primary;
@@ -167,6 +270,10 @@
                 inset: -2px;
                 background: linear-gradient(180deg, rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
                 border-radius: 40px;
+
+                @include respond-to(phone) {
+                    border-radius: 20px;
+                }
             }
 
             .price {
@@ -180,6 +287,10 @@
                         background-color: $primary;
                     }
                 }
+            }
+
+            .card__button {
+                border-width: 2px;
             }
         }
 
@@ -197,28 +308,52 @@
             @include respond-to(large) {
                 inset: 10px -10px auto auto;
             }
+
+            @include respond-to(phone) {
+                inset: -10px -10px auto auto;
+                font-size: 14px;
+                padding: 2px 4px;
+            }
         }
 
         &__title {
             font-size: 50px;
             margin-bottom: 10px;
             text-transform: uppercase;
+
+            @include respond-to(phone) {
+                font-size: 24px;
+                margin-bottom: 0;
+            }
         }
 
         &__text {
             font-family: Ifkica, sans-serif;
             font-size: 20px;
             margin-bottom: 15px;
+
+            @include respond-to(phone) {
+                font-size: 10px;
+                margin-bottom: 8px;
+            }
         }
 
         &__list {
             margin-bottom: 20px;
             flex: 1;
 
+            @include respond-to(phone) {
+                font-size: 10px;
+            }
+
             &-item {
                 @include flex(flex-start, center);
                 position: relative;
                 padding-left: 40px;
+
+                @include respond-to(phone) {
+                    padding-left: 20px;
+                }
 
                 &:not(:last-child) {
                     margin-bottom: 10px;
@@ -232,6 +367,11 @@
                     height: 20px;
                     border-radius: 20px;
                     background-color: #000;
+
+                    @include respond-to(phone) {
+                        width: 10px;
+                        height: 10px;
+                    }
                 }
             }
         }
@@ -242,6 +382,12 @@
             line-height: 25px;
             text-transform: uppercase;
             margin-bottom: 28px;
+
+            @include respond-to(phone) {
+                font-size: 7px;
+                line-height: 9px;
+                margin-bottom: 14px;
+            }
         }
 
         .price {
@@ -253,15 +399,28 @@
             min-height: 120px;
             margin-bottom: 20px;
 
+            @include respond-to(phone) {
+                margin-bottom: 10px;
+                min-height: 58px;
+            }
+
             &__old {
                 font-size: 15px;
                 margin-bottom: 15px;
                 text-decoration: line-through;
                 opacity: .7;
+
+                @include respond-to(phone) {
+                    font-size: 8px;
+                    margin-bottom: 7px;
+                }
             }
 
             &__current {
                 font-size: 35px;
+                @include respond-to(phone) {
+                    font-size: 17px;
+                }
             }
 
             &__badge {
@@ -270,6 +429,11 @@
                 position: absolute;
                 right: 20px;
                 top: 10px;
+
+                @include respond-to(phone) {
+                    width: 34px;
+                    height: 34px;
+                }
             }
         }
 
@@ -279,6 +443,14 @@
             font-size: 20px;
             border-radius: 15px;
             letter-spacing: 1px;
+
+            @include respond-to(phone) {
+                color: $primary;
+                padding: 8px 24px;
+                border-radius: 8px;
+                font-size: 12px;
+                height: 32px;
+            }
         }
     }
 }
@@ -291,6 +463,10 @@
         padding: 40px 22px;
     }
 
+    @include respond-to(phone) {
+        margin-bottom: 0;
+    }
+
     &:before,
     &:after {
         z-index: -1;
@@ -298,6 +474,10 @@
         background: url('@/assets/svg/section-carve.svg') center top / 100% no-repeat;
         inset: 0 30px 0;
         opacity: .4;
+
+        @include respond-to(phone) {
+            inset: 20px;
+        }
     }
 
     &:after {
@@ -318,79 +498,16 @@
     }
 }
 
-.questions {
-    margin-bottom: 200px;
-    overflow: hidden;
-
-    .container {
-        padding-top: 160px;
-    }
-
-    @include respond-to(large) {
-        margin-bottom: 0;
-    }
-
-    &__title {
-        margin-bottom: 100px;
-    }
-
-    &__hero {
-        z-index: -1;
-        position: absolute;
-
-        &--sonic {
-            top: 400px;
-            left: -100px;
-
-            @include respond-to(large) {
-                display: none;
-            }
-        }
-
-        &--hatico {
-            top: 0px;
-            right: -100px;
-
-            @include respond-to(large) {
-                width: 300px;
-            }
-        }
-    }
-
-    .middle {
-        @include flex(center, center, column);
-        gap: 40px;
-        max-width: 700px;
-        padding: 0 20px;
-        font-size: 25px;
-        text-align: center;
-        margin: 0 auto;
-
-        @include respond-to(tablet) {
-            font-size: 16px;
-        }
-
-        &__input {
-            width: 100%;
-        }
-
-        &__text {
-            letter-spacing: -.05em;
-        }
-
-        &__title {
-            letter-spacing: .05em;
-            color: $primary;
-            text-transform: uppercase;
-        }
-    }
-}
-
 .qr {
     &__text {
         @include flex(center, center, column);
         padding: 100px 0 150px;
         background: url('@/assets/svg/section-bg.svg') center top / 100% no-repeat;
+
+
+        @include respond-to(phone) {
+            padding-top: 30px;
+        }
     }
 
     &__title {
@@ -402,11 +519,22 @@
         @include respond-to(large) {
             font-size: 30px;
         }
+
+        @include respond-to(phone) {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
     }
 
     &__image {
         width: 278px;
         height: 278px;
+
+
+        @include respond-to(phone) {
+            width: 81px;
+            height: 81px;
+        }
     }
 
     .frame {
@@ -419,10 +547,30 @@
         height: 420px;
         margin-bottom: 150px;
 
+        @include respond-to(phone) {
+            padding: 7px;
+            margin-bottom: 40px;
+            height: 142px;
+            border-radius: 15px;
+        }
+
         &:before {
             @include pseudo();
             inset: -24px;
             background: url('@/assets/svg/frame.svg') center top / 100% no-repeat;
+
+
+            @include respond-to(phone) {
+                inset: -7px;
+            }
+        }
+
+        .btn {
+
+            @include respond-to(phone) {
+                font-size: 10px;
+                padding: 7px;
+            }
         }
     }
 
@@ -432,6 +580,10 @@
         margin-top: -150px;
         animation: scroll 20s linear infinite;
         counter-reset: item;
+
+        @include respond-to(phone) {
+            gap: 10px;
+        }
     }
 
     &__res {
@@ -443,6 +595,12 @@
 
         &:before {
             content: counter(item);
+        }
+
+
+        @include respond-to(phone) {
+            width: 141px;
+            height: 98px;
         }
     }
 
@@ -460,6 +618,12 @@
     &__title {
         margin-bottom: 120px;
 
+
+        @include respond-to(phone) {
+            margin-top: 10px;
+            margin-bottom: 80px;
+        }
+
         .background {
             display: none;
         }
@@ -469,6 +633,12 @@
             width: 100px;
             top: 20px;
             right: -150px;
+
+
+            @include respond-to(phone) {
+                width: 72px;
+                right: -80px;
+            }
         }
     }
 
@@ -480,6 +650,11 @@
         @include respond-to(tablet) {
             font-size: 18px;
         }
+
+        @include respond-to(phone) {
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
     }
 
     .soc {
@@ -490,8 +665,17 @@
             flex-wrap: wrap;
         }
 
+
+        @include respond-to(phone) {
+            gap: 20px;
+        }
+
         &:not(:last-child) {
             margin-bottom: 100px;
+
+            @include respond-to(phone) {
+                margin-bottom: 45px;
+            }
         }
 
         &__icon {
@@ -503,11 +687,18 @@
             border: 3px solid #fff;
             flex-shrink: 0;
 
-            @include respond-to(tablet) {
-                width: 30px;
-                height: 30px;
-                padding: 15px;
+            @include respond-to(desktop) {
+                width: 50px;
+                height: 50px;
+                padding: 20px;
                 border-width: 2px;
+            }
+
+
+            @include respond-to(phone) {
+                width: 25px;
+                height: 25px;
+                padding: 10px;
             }
         }
 
@@ -529,6 +720,10 @@
                 font-size: 18px;
                 margin-bottom: 10px;
             }
+
+            @include respond-to(phone) {
+                font-size: 12px;
+            }
         }
 
         &__text {
@@ -536,6 +731,10 @@
 
             @include respond-to(tablet) {
                 font-size: 16px;
+            }
+
+            @include respond-to(phone) {
+                font-size: 11px;
             }
         }
 
@@ -552,16 +751,24 @@
             }
 
             @include respond-to(tablet) {
-                margin-left: calc(64px + 35px);
+                margin-left: calc(90px + 35px);
             }
 
             @include respond-to(phone) {
-                margin-left: unset;
-                width: 100%;
+                margin-left: 70px;
+                padding: 5px 7px;
+                height: 23px;
+                gap: 10px;
+                border-radius: 7px;
+                font-size: 9px;
             }
 
             .reactsvg {
                 width: 10px;
+
+                @include respond-to(phone) {
+                    width: 5px;
+                }
             }
         }
     }
@@ -578,6 +785,12 @@
         @include respond-to(tablet) {
             font-size: 20px;
         }
+
+        @include respond-to(phone) {
+            font-size: 12px;
+            max-width: 250px;
+            margin: 0 auto 20px;
+        }
     }
 
     &__btext {
@@ -586,6 +799,11 @@
 
         @include respond-to(tablet) {
             font-size: 16px;
+        }
+        @include respond-to(phone) {
+            font-size: 12px;
+            max-width: 230px;
+            margin: 0 auto 100px;
         }
     }
 }
