@@ -4,6 +4,10 @@
 .reasons {
     position: relative;
 
+    @include respond-to(macbook) {
+        padding: 60px 0;
+    }
+
     &:before,
     &:after {
         z-index: -1;
@@ -11,6 +15,10 @@
         background: url('@/assets/svg/section-carve.svg') center top / 100% no-repeat;
         inset: 0 30px 0;
         opacity: .4;
+
+        @include respond-to(macbook) {
+            inset: 0 45px 0;
+        }
     }
 
     &:after {
@@ -21,25 +29,31 @@
         padding: 20px 0;
     }
 
-    &__header {
-        margin-bottom: 40px;
-    }
-
     .container {
         overflow: visible !important;
     }
 
     &__header {
         position: sticky;
-        top: 20px;
+        top: 40px;
         z-index: 10;
         padding: 20px 0;
+        margin-bottom: 40px;
+
+        @include respond-to(macbook) {
+            padding: 0;
+        }
     }
 
     &__list {
         @include flex(stretch, flex-end, column);
         gap: 100px;
         padding: 40px 0 40px 40px;
+
+        @include respond-to(macbook) {
+            gap: 73px;
+            padding: 0 0 0 40px;
+        }
 
         @include respond-to(desktop) {
             padding-left: 24px;
@@ -66,6 +80,10 @@
             max-width: 1000px;
         }
 
+        @include respond-to(macbook) {
+            padding: 10px 0 10px 20px;
+        }
+
         @include respond-to(large) {
             max-width: 800px;
         }
@@ -84,6 +102,10 @@
             left: -40px;
             top: 50%;
             transform: translate(-100%, -50%);
+
+            @include respond-to(macbook) {
+                left: -110px;
+            }
 
             @include respond-to(tablet) {
                 display: none;
@@ -116,6 +138,10 @@
             min-height: 560px;
             color: #fff;
 
+            @include respond-to(macbook) {
+                min-height: 390px;
+            }
+
             @include respond-to(desktop) {
                 min-height: 470px;
                 padding: 0 60px;
@@ -141,6 +167,11 @@
             text-align: center;
             margin-bottom: 25px;
 
+            @include respond-to(macbook) {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
             @media (max-width: 600px) {
                 font-size: 20px;
                 margin-bottom: 18px;
@@ -153,6 +184,12 @@
             max-width: 630px;
             margin-bottom: 45px;
             text-transform: uppercase;
+
+            @include respond-to(macbook) {
+                font-size: 12px;
+                margin-bottom: 20px;
+                max-width: 340px;
+            }
 
             @include respond-to(desktop) {
                 font-size: 16px;

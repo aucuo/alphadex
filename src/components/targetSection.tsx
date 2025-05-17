@@ -125,7 +125,7 @@ const TargetSection: React.FC = () => {
                                 <div className="ill__title">Новичкам</div>
                                 <div className="ill__text">
                                     Если вы только начинаете свой путь - мы поможем избежать ошибок и сделать первые шаги
-                                    к осознанной торговле без страха.
+                                    к осознанной торговле без страха
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -148,7 +148,7 @@ const TargetSection: React.FC = () => {
                                 <div className="ill__text">
                                     Торгуете на CEX, но хотите правильно подойти к DEX, систематизировать знания и
                                     прокачать стратегию? У нас вы получите только рабочие инструменты, практический опыт
-                                    и профессиональную поддержку.
+                                    и профессиональную поддержку
                                 </div>
                                 <div className="ill__info-dec"></div>
                             </motion.div>
@@ -172,7 +172,7 @@ const TargetSection: React.FC = () => {
                                 <div className="ill__title">DEX-трейдерам</div>
                                 <div className="ill__text">
                                     Уже в теме DEX-торговли, но хотите углубиться, начать зарабатывать и стать частью
-                                    сильного комьюнити? Вы в нужном месте.
+                                    сильного комьюнити? Вы в нужном месте
                                 </div>
                             </motion.div>
                         </motion.div>

@@ -11,6 +11,14 @@
     padding: 0 40px;
     height: 58px;
     font-size: 25px;
+    letter-spacing: -.05em;
+
+    @include respond-to(macbook) {
+        font-size: 18px;
+        height: 42px;
+        padding: 0 32px;
+        border-radius: 10px;
+    }
 
     @include respond-to(tablet) {
         font-size: 16px;
@@ -30,12 +38,20 @@
         width: fit-content;
         margin: 5px;
 
+        @include respond-to(macbook) {
+            margin: 3px;
+        }
+
         &:before {
             z-index: -1;
             @include pseudo();
             inset: -5px;
             background: linear-gradient(0deg,rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
             border-radius: 15px;
+
+            @include respond-to(macbook) {
+                inset: -3px;
+            }
 
             @include respond-to(phone) {
                 inset: -2px;

@@ -31,6 +31,10 @@
             background-image: url('@/assets/svg/border-corner.svg');
             width: 24px;
             height: 24px;
+
+            @include respond-to(macbook) {
+                scale: .8;
+            }
         }
 
         &:after {
@@ -71,12 +75,20 @@
 }
 
 .hero {
+    z-index: 10;
+    position: relative;
+
     .container {
+        z-index: 10;
         @include flex(flex-start, stretch, column);
         position: relative;
         min-height: 115vh;
         overflow: hidden;
         max-width: unset;
+
+        @include respond-to(macbook) {
+            min-height: 900px;
+        }
 
         @include respond-to(phone) {
             min-height: 80vh;
@@ -94,6 +106,10 @@
         gap: 130px;
         padding-bottom: 100px;
 
+        @include respond-to(macbook) {
+            gap: 100px;
+        }
+
         @include respond-to(xxl) {
             gap: 74px;
         }
@@ -105,6 +121,10 @@
 
         .reactsvg {
             width: 190px;
+
+            @include respond-to(macbook) {
+                width: 140px;
+            }
 
             @include respond-to(desktop) {
                 width: 160px;
@@ -119,8 +139,8 @@
             font-size: 112px;
             text-align: center;
 
-            @include respond-to(desktop) {
-                font-size: 102px;
+            @include respond-to(macbook) {
+                font-size: 82px;
             }
 
             @include respond-to(tablet) {
@@ -140,6 +160,10 @@
             font-size: 33px;
             text-align: center;
             letter-spacing: .1em;
+
+            @include respond-to(macbook) {
+                font-size: 24px;
+            }
 
             @include respond-to(desktop) {
                 font-size: 20px;
@@ -171,6 +195,11 @@
             height: auto;
             inset: 134px auto auto 29px;
 
+            @include respond-to(macbook) {
+                width: 320px;
+                inset: 120px auto auto 44px;
+            }
+
             @include respond-to(large) {
                 width: 289px;
                 inset: 110px auto auto -11px;
@@ -187,6 +216,11 @@
             height: auto;
             inset: auto auto 0 184px;
 
+            @include respond-to(macbook) {
+                width: 320px;
+                inset: auto auto 50px 160px;
+            }
+
             @include respond-to(large) {
                 width: 229px;
                 inset: auto auto 200px -80px;
@@ -201,6 +235,11 @@
         &--right {
             width: 520px;
             inset: auto 72px 0 auto;
+
+            @include respond-to(macbook) {
+                width: 380px;
+                inset: auto 62px 50px auto;
+            }
 
             @include respond-to(large) {
                 width: 334px;
@@ -225,6 +264,10 @@
         @include flex(space-between, stretch);
         gap: 20px;
 
+        @include respond-to(macbook) {
+            gap: 15px;
+        }
+
         @include respond-to(large) {
             flex-direction: column !important;
         }
@@ -248,9 +291,16 @@
         min-height: 800px;
         flex: 1;
 
+        @include respond-to(macbook) {
+            border-radius: 30px;
+            min-height: 600px;
+            padding: 22px 18px;
+        }
+
         @include respond-to(tablet) {
             max-width: 584px;
             margin: 0 auto;
+            width: 100%;
         }
 
         @include respond-to(phone) {
@@ -270,6 +320,10 @@
                 inset: -2px;
                 background: linear-gradient(180deg, rgba(0, 240, 252, 1) 0%, rgba(0, 240, 252, 0.2) 100%);
                 border-radius: 40px;
+
+                @include respond-to(macbook) {
+                    border-radius: 30px;
+                }
 
                 @include respond-to(phone) {
                     border-radius: 20px;
@@ -305,6 +359,12 @@
             border-radius: 6px;
             padding: 6px;
 
+            @include respond-to(macbook) {
+                font-size: 18px;
+                padding: 0 8px 2px;
+                inset: -10px -10px auto auto;
+            }
+
             @include respond-to(large) {
                 inset: 10px -10px auto auto;
             }
@@ -321,6 +381,11 @@
             margin-bottom: 10px;
             text-transform: uppercase;
 
+            @include respond-to(macbook) {
+                font-size: 36px;
+                margin-bottom: 0;
+            }
+
             @include respond-to(phone) {
                 font-size: 24px;
                 margin-bottom: 0;
@@ -332,6 +397,11 @@
             font-size: 20px;
             margin-bottom: 15px;
 
+            @include respond-to(macbook) {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
             @include respond-to(phone) {
                 font-size: 10px;
                 margin-bottom: 8px;
@@ -342,6 +412,10 @@
             margin-bottom: 20px;
             flex: 1;
 
+            @include respond-to(macbook) {
+                font-size: 14px;
+            }
+
             @include respond-to(phone) {
                 font-size: 10px;
             }
@@ -351,12 +425,20 @@
                 position: relative;
                 padding-left: 40px;
 
+                @include respond-to(macbook) {
+                    padding-left: 30px;
+                }
+
                 @include respond-to(phone) {
                     padding-left: 20px;
                 }
 
                 &:not(:last-child) {
                     margin-bottom: 10px;
+
+                    @include respond-to(macbook) {
+                        margin-bottom: 6px;
+                    }
                 }
 
                 &::before {
@@ -367,6 +449,11 @@
                     height: 20px;
                     border-radius: 20px;
                     background-color: #000;
+
+                    @include respond-to(macbook) {
+                        width: 15px;
+                        height: 15px;
+                    }
 
                     @include respond-to(phone) {
                         width: 10px;
@@ -382,11 +469,24 @@
             line-height: 25px;
             text-transform: uppercase;
             margin-bottom: 28px;
+            letter-spacing: .05em;
+
+            @include respond-to(macbook) {
+                font-size: 10px;
+                line-height: 13px;
+                margin-bottom: 20px;
+            }
 
             @include respond-to(phone) {
                 font-size: 7px;
                 line-height: 9px;
                 margin-bottom: 14px;
+            }
+
+            &-param:not(:last-child) {
+                @include respond-to(macbook) {
+                    margin-bottom: 5px;
+                }
             }
         }
 
@@ -399,6 +499,12 @@
             min-height: 120px;
             margin-bottom: 20px;
 
+            @include respond-to(macbook) {
+                margin-bottom: 15px;
+                min-height: 85px;
+                border-radius: 15px;
+            }
+
             @include respond-to(phone) {
                 margin-bottom: 10px;
                 min-height: 58px;
@@ -410,6 +516,11 @@
                 text-decoration: line-through;
                 opacity: .7;
 
+                @include respond-to(macbook) {
+                    font-size: 11px;
+                    margin-bottom: 10px;
+                }
+
                 @include respond-to(phone) {
                     font-size: 8px;
                     margin-bottom: 7px;
@@ -418,6 +529,12 @@
 
             &__current {
                 font-size: 35px;
+                letter-spacing: .05em;
+
+                @include respond-to(macbook) {
+                    font-size: 25px;
+                }
+
                 @include respond-to(phone) {
                     font-size: 17px;
                 }
@@ -429,6 +546,13 @@
                 position: absolute;
                 right: 20px;
                 top: 10px;
+
+                @include respond-to(macbook) {
+                    width: 40px;
+                    height: 40px;
+                    top: 7px;
+                    right: 15px;
+                }
 
                 @include respond-to(phone) {
                     width: 34px;
@@ -443,9 +567,16 @@
             font-size: 20px;
             border-radius: 15px;
             letter-spacing: 1px;
+            color: $primary;
+
+            @include respond-to(macbook) {
+                padding: 0 37px;
+                font-size: 14px;
+                height: 36px;
+                border-radius: 10px;
+            }
 
             @include respond-to(phone) {
-                color: $primary;
                 padding: 8px 24px;
                 border-radius: 8px;
                 font-size: 12px;
@@ -458,6 +589,10 @@
 .faq {
     padding: 80px 80px;
     margin-bottom: 200px;
+
+    @include respond-to(macbook) {
+        padding: 60px 65px;
+    }
 
     @include respond-to(large) {
         padding: 40px 22px;
@@ -504,6 +639,9 @@
         padding: 100px 0 150px;
         background: url('@/assets/svg/section-bg.svg') center top / 100% no-repeat;
 
+        @include respond-to(macbook) {
+            padding-top: 73px;
+        }
 
         @include respond-to(phone) {
             padding-top: 30px;
@@ -515,6 +653,11 @@
         margin-bottom: 100px;
         text-align: center;
         text-transform: uppercase;
+
+        @include respond-to(macbook) {
+            font-size: 43px;
+            margin-bottom: 72px;
+        }
 
         @include respond-to(large) {
             font-size: 30px;
@@ -530,6 +673,10 @@
         width: 278px;
         height: 278px;
 
+        @include respond-to(macbook) {
+            width: 200px;
+            height: 200px;
+        }
 
         @include respond-to(phone) {
             width: 81px;
@@ -547,6 +694,13 @@
         height: 420px;
         margin-bottom: 150px;
 
+        @include respond-to(macbook) {
+            height: 307px;
+            border-radius: 20px;
+            padding: 20px 25px;
+            gap: 10px;
+        }
+
         @include respond-to(phone) {
             padding: 7px;
             margin-bottom: 40px;
@@ -559,6 +713,9 @@
             inset: -24px;
             background: url('@/assets/svg/frame.svg') center top / 100% no-repeat;
 
+            @include respond-to(macbook) {
+                inset: -14px;
+            }
 
             @include respond-to(phone) {
                 inset: -7px;
@@ -581,6 +738,10 @@
         animation: scroll 20s linear infinite;
         counter-reset: item;
 
+        @include respond-to(macbook) {
+            gap: 26px;
+        }
+
         @include respond-to(phone) {
             gap: 10px;
         }
@@ -595,6 +756,12 @@
 
         &:before {
             content: counter(item);
+        }
+
+        @include respond-to(macbook) {
+            width: 355px;
+            height: 246px;
+            border-radius: 18px;
         }
 
 
@@ -617,15 +784,10 @@
 .follow {
     &__title {
         margin-bottom: 120px;
-
+        margin-top: 70px;
 
         @include respond-to(phone) {
-            margin-top: 10px;
             margin-bottom: 80px;
-        }
-
-        .background {
-            display: none;
         }
 
         &-arrow {
@@ -647,6 +809,11 @@
         font-size: 25px;
         margin-bottom: 100px;
 
+        @include respond-to(macbook) {
+            font-size: 18px;
+            margin-bottom: 70px;
+        }
+
         @include respond-to(tablet) {
             font-size: 18px;
         }
@@ -661,6 +828,10 @@
         @include flex(space-between, center);
         gap: 35px;
 
+        @include respond-to(macbook) {
+            gap: 25px;
+        }
+
         @include respond-to(desktop) {
             flex-wrap: wrap;
         }
@@ -672,6 +843,10 @@
 
         &:not(:last-child) {
             margin-bottom: 100px;
+
+            @include respond-to(macbook) {
+                margin-bottom: 73px;
+            }
 
             @include respond-to(phone) {
                 margin-bottom: 45px;
@@ -686,6 +861,11 @@
             border-radius: 100px;
             border: 3px solid #fff;
             flex-shrink: 0;
+
+            @include respond-to(macbook) {
+                width: 40px;
+                height: 40px;
+            }
 
             @include respond-to(desktop) {
                 width: 50px;
@@ -716,6 +896,11 @@
             margin-bottom: 20px;
             font-size: 25px;
 
+            @include respond-to(macbook) {
+                font-size: 18px;
+                margin-bottom: 14px;
+            }
+
             @include respond-to(tablet) {
                 font-size: 18px;
                 margin-bottom: 10px;
@@ -728,6 +913,10 @@
 
         &__text {
             font-size: 23px;
+
+            @include respond-to(macbook) {
+                font-size: 16px;
+            }
 
             @include respond-to(tablet) {
                 font-size: 16px;
@@ -745,6 +934,15 @@
             padding: 10px 15px;
             gap: 20px;
             text-transform: uppercase;
+
+            @include respond-to(macbook) {
+                font-size: 12px;
+                padding: 0 10px;
+                height: 34px;
+                border-radius: 7px;
+                padding-bottom: 1px;
+                gap: 15px;
+            }
 
             @include respond-to(desktop) {
                 margin-left: calc(96px + 35px);
@@ -766,6 +964,10 @@
             .reactsvg {
                 width: 10px;
 
+                @include respond-to(macbook) {
+                    width: 6px;
+                }
+
                 @include respond-to(phone) {
                     width: 5px;
                 }
@@ -782,6 +984,11 @@
         font-weight: 400;
         text-align: center;
 
+        @include respond-to(macbook) {
+            font-size: 18px;
+            margin-bottom: 13px;
+        }
+
         @include respond-to(tablet) {
             font-size: 20px;
         }
@@ -796,6 +1003,11 @@
     &__btext {
         text-align: center;
         font-size: 25px;
+
+        @include respond-to(macbook) {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
 
         @include respond-to(tablet) {
             font-size: 16px;

@@ -64,9 +64,9 @@ const Header = () => {
 
             {/* Кнопки */}
             <div className="header__buttons">
-                <Button className="header__button" variant="outline" size="icon">
-                    ENG
-                </Button>
+                {/*<Button className="header__button" variant="outline" size="icon">*/}
+                {/*    ENG*/}
+                {/*</Button>*/}
 
                 <Button
                     className="header__button header__button--soc"
@@ -104,7 +104,7 @@ const Header = () => {
                 <Button
                     className="header__button header__button--sprint"
                     onClick={() => {
-                        const element = document.getElementById('questions');
+                        const element = document.getElementById('products');
                         if (element) {
                             element.scrollIntoView({ behavior: 'smooth' });
                         }

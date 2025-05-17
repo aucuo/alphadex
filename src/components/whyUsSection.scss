@@ -7,6 +7,10 @@
     &__title {
         margin-bottom: 150px;
 
+        @include respond-to(macbook) {
+            margin-bottom: 120px;
+        }
+
         @include respond-to(phone) {
             margin-bottom: 70px;
         }
@@ -15,6 +19,10 @@
     &__list {
         @include flex(space-between, stretch, row, wrap);
         gap: 50px;
+
+        @include respond-to(macbook) {
+            gap: 40px;
+        }
 
         @include respond-to(desktop) {
             align-items: center;
@@ -34,6 +42,10 @@
 
         @media (max-width: 1590px) {
             height: 460px;
+        }
+
+        @include respond-to(macbook) {
+            height: 313px;
         }
 
         @include respond-to(large) {
@@ -59,12 +71,12 @@
             position: absolute;
 
             &:first-child {
-                inset: -2px -2px auto;
+                inset: -20px -2px auto;
                 transform: rotate(180deg);
             }
 
             &:last-child {
-                inset: auto -2px -2px;
+                inset: auto -2px -20px;
             }
         }
 
@@ -73,15 +85,34 @@
             text-align: center;
             margin-bottom: 10px;
 
+            @include respond-to(macbook) {
+                font-size: 32px;
+                line-height: 37px;
+                margin-bottom: 7px;
+                margin-top: 9px;
+            }
+
             @include respond-to(phone) {
                 font-size: 15px;
+                line-height: 37px;
                 margin-bottom: 5px;
+            }
+        }
+
+        @include respond-to(macbook) {
+            &:first-child .card__title {
+                font-size: 19px;
             }
         }
 
         &__text {
             font-size: 15px;
             text-align: center;
+
+            @include respond-to(macbook) {
+                font-size: 11px;
+                max-width: 170px;
+            }
 
             @include respond-to(phone) {
                 font-size: 9px;

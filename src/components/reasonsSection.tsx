@@ -64,9 +64,6 @@ const ReasonsSection: React.FC = () => {
             <motion.div
                 className="reasons__header"
                 style={{
-                    position: "sticky",
-                    top: 0, // Фиксированное положение сверху
-                    zIndex: 10,
                     opacity: headerOpacity, // Резкое изменение прозрачности
                 }}
             >
@@ -105,7 +102,7 @@ const ReasonsSection: React.FC = () => {
                                 <p className="card__text">{card.text}</p>
                                 <Button
                                     onClick={() => {
-                                        const element = document.getElementById('questions');
+                                        const element = document.getElementById('products');
                                         if (element) {
                                             element.scrollIntoView({ behavior: 'smooth' });
                                         }

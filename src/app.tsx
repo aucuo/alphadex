@@ -21,6 +21,7 @@ import FollowArrowIcon from "@/assets/svg/follow-arrow.svg";
 
 import YoutubeIcon from "@/assets/svg/soc-youtube.svg";
 import TelegramIcon from "@/assets/svg/soc-telegram.svg";
+import XIcon from "@/assets/svg/soc-xtwitter.svg";
 import ArrowRightIcon from "@/assets/svg/arrow-right.svg";
 import Footer from "@/components/footer.tsx";
 import TargetSection from "@/components/targetSection.tsx";
@@ -44,7 +45,7 @@ function App() {
                         </div>
                         <Button
                             onClick={() => {
-                                const element = document.getElementById('questions');
+                                const element = document.getElementById('products');
                                 if (element) {
                                     element.scrollIntoView({behavior: 'smooth'});
                                 }
@@ -119,7 +120,7 @@ function App() {
                                 </div>
                                 <Button className="card__button" variant="black" size="sm"
                                         onClick={() => {
-                                            const element = document.getElementById('questions');
+                                            const element = document.getElementById('products');
                                             if (element) {
                                                 element.scrollIntoView({ behavior: 'smooth' });
                                             }
@@ -137,8 +138,7 @@ function App() {
                                 SPRINT
                             </h3>
                             <p className="card__text">
-                                Полныи старт в DEX —
-                                обученйе й практйка
+                                полныи старт в DEX
                             </p>
                             <ul className="card__list">
                                 <li className="card__list-item">
@@ -163,7 +163,7 @@ function App() {
                                         длительность: 1 месяц
                                     </div>
                                     <div className="card__info-param">
-                                        Формат: вйдео + закрытый клуб + лайвы
+                                        Формат: видео + закрытый клуб + лайвы
                                     </div>
                                     <div className="card__info-param">
                                         оплата: сразу/рассрочка
@@ -180,7 +180,7 @@ function App() {
                                 </div>
                                 <Button className="card__button" variant="outlinePrimary" size="sm"
                                         onClick={() => {
-                                            const element = document.getElementById('questions');
+                                            const element = document.getElementById('products');
                                             if (element) {
                                                 element.scrollIntoView({ behavior: 'smooth' });
                                             }
@@ -195,7 +195,7 @@ function App() {
                                 sprint one
                             </h3>
                             <p className="card__text">
-                                максймум пользы —
+                                едйныи максймум -<br/>
                                 для будущйх профй
                             </p>
                             <ul className="card__list">
@@ -230,7 +230,7 @@ function App() {
                                         длительность: 2 месяца
                                     </div>
                                     <div className="card__info-param">
-                                        Формат: вйдео + закрытый клуб + лаивы + 1 неделя
+                                        Формат: видео + закрытый клуб + лаивы + 1 неделя
                                         сопровожденйя в отдельном чате
                                     </div>
                                     <div className="card__info-param">
@@ -248,7 +248,7 @@ function App() {
                                 </div>
                                 <Button className="card__button" variant="black" size="sm"
                                         onClick={() => {
-                                            const element = document.getElementById('questions');
+                                            const element = document.getElementById('products');
                                             if (element) {
                                                 element.scrollIntoView({ behavior: 'smooth' });
                                             }
@@ -370,7 +370,7 @@ function App() {
                             <img className="qr__image" src={QRImage} alt="QR код"/>
                             <Button size="sm"
                                     onClick={() => {
-                                        window.open("https://t.me/alpha_web3_bot", "_blank");
+                                        window.open("https://t.me/alpha_web3_bot?start=academy", "_blank");
                                     }}
                             >
                                 Торговать
@@ -448,7 +448,7 @@ function App() {
                         </Button>
                     </div>
                     <div className="follow__soc soc">
-                        <ReactSVG className="soc__icon reactsvg" src={TelegramIcon}/>
+                        <ReactSVG className="soc__icon reactsvg" src={XIcon}/>
                         <div className="soc__info">
                             <h3 className="soc__title">
                                 Twitter (X)

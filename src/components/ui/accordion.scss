@@ -3,10 +3,19 @@
 @import "@/styles/mixins";
 
 .accordion {
+
     &__item {
         border: 6px solid $primary;
         border-radius: 30px;
         padding: 30px;
+
+        @include respond-to(macbook) {
+            max-width: 1024px;
+            margin: 0 auto;
+            border-width: 4px;
+            border-radius: 20px;
+            padding: 20px;
+        }
 
         @include respond-to(large) {
             padding: 15px;
@@ -32,6 +41,10 @@
         top: 50%;
         transform: translateY(-50%);
 
+        @include respond-to(macbook) {
+            width: 20px;
+        }
+
         @include respond-to(large) {
             width: 16px;
             right: 30px;
@@ -54,6 +67,10 @@
 
         &:hover {
             opacity: .8;
+        }
+
+        @include respond-to(macbook) {
+            font-size: 25px;
         }
 
         @include respond-to(large) {
@@ -88,6 +105,13 @@
         font-size: 25px;
         padding-top: 70px;
         padding-right: 100px;
+        letter-spacing: -.05em;
+
+        @include respond-to(macbook) {
+            padding-right: 85px;
+            padding-top: 60px;
+            font-size: 18px;
+        }
 
         @include respond-to(large) {
             font-size: 15px;

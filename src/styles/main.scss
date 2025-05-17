@@ -8,6 +8,10 @@
     margin: 0 auto;
     overflow: hidden;
 
+    @include respond-to(macbook) {
+        padding: 0 60px;
+    }
+
     @include respond-to(desktop) {
         padding: 0 22px;
     }
@@ -26,6 +30,11 @@ body {
     inset: 0 -60px auto;
     background-position: top -200px center;
     background-repeat: no-repeat;
+
+    @include respond-to(macbook) {
+        background-image: url('@/assets/svg/hero-circles-md.svg');
+        background-position: top 0 center;
+    }
 
     @include respond-to(desktop) {
         background-image: url('@/assets/svg/hero-circles-t.svg');

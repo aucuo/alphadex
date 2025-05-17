@@ -72,7 +72,7 @@ const WhyUsSection: React.FC = () => {
                             {index === 4 && 'Лет в криптоиндустрии, 3 года из которых в DEX'}
                         </p>
                         <ReactSVG
-                            src={index % 2 === 0 ? Shape2Icon : Shape1Icon}
+                            src={index > 2 ? Shape1Icon : Shape2Icon}
                             className="card__shape reactsvg"
                         />
                     </motion.div>

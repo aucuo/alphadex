@@ -16,7 +16,7 @@ const Footer = () => {{
                     <div className="footer__buttons">
                         <Button className="footer__button" size="sm"
                                 onClick={() => {
-                                    const element = document.getElementById('questions');
+                                    const element = document.getElementById('products');
                                     if (element) {
                                         element.scrollIntoView({ behavior: 'smooth' });
                                     }
@@ -66,12 +66,15 @@ const Footer = () => {{
                             <a href="https://X.com/alpha1_academy" target="_blank" className="nav__link">
                                 twitter (x)
                             </a>
-                            <div className="nav__link nav__link--disabled">
-                                debank personal
-                            </div>
-                            <div className="nav__link nav__link--disabled">
-                                debank team
-                            </div>
+                            <a href="https://teletype.in/@alpha_one_academy" target="_blank" className="nav__link">
+                                teletype
+                            </a>
+                            {/*<div className="nav__link nav__link--disabled">*/}
+                            {/*    debank personal*/}
+                            {/*</div>*/}
+                            {/*<div className="nav__link nav__link--disabled">*/}
+                            {/*    debank team*/}
+                            {/*</div>*/}
                         </div>
                         <div className="nav__col">
                             <div className="nav__title">
