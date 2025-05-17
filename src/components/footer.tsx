@@ -80,11 +80,17 @@ const Footer = () => {{
                             <div className="nav__title">
                                 другое
                             </div>
-                            <a href="" className="nav__link">
-                                политика
+                            <a href="/files/pub-off.pdf" target="_blank" className="nav__link">
+                                публичная оферта
                             </a>
-                            <a href="" className="nav__link">
-                                правила и условия
+                            <a href="/files/politics.pdf" target="_blank" className="nav__link">
+                                политика конфиденциальности
+                            </a>
+                            <a href="/files/obr-dann.pdf" target="_blank" className="nav__link">
+                                согласие на обработку данных
+                            </a>
+                            <a href="/files/rassilki.pdf" target="_blank" className="nav__link">
+                                согласие на получение рассылок
                             </a>
                         </div>
                     </nav>
