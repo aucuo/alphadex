@@ -101,7 +101,16 @@ const Footer = () => {{
             </div>
             <div className="footer__bottom">
                 <p className="footer__bottom-text">
-                    © Все права защищены, Alpha DEX Academy 2025
+                    © Все права защищены, 2025
+                </p>
+                <p className="footer__bottom-text footer__bottom-text--small">
+                    Индивидуальный предприниматель Лопаткин Денис Сергеевич
+                    <br/>
+                    ИНН: 602712312962
+                    <br/>
+                    ОГРН/ОГРНИП: 325600000006375
+                    <br/>
+                    Email: <a href="mailto:alphadexacademy@yandex.ru" target="_blank">alphadexacademy@yandex.ru</a>
                 </p>
             </div>
         </div>

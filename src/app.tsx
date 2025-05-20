@@ -291,7 +291,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Что будет после SPRINT?
+                                что будет после SPRINT?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Ты получаешь доступ в закрытый клуб с поддержкой экспертов, где продолжаешь расти вместе
@@ -303,7 +303,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Какйе способы оплаты доступны?
+                                какйе способы оплаты доступны?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Ты можешь внести оплату сразу или разбить её на несколько частей без переплат
@@ -315,7 +315,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Будет лй поддержка на старте?
+                                будет лй поддержка на старте?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Да. Мы всегда на связи в чате и на созвонах - поможем на каждом этапе с первых шагов
@@ -325,7 +325,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Когда я увйжу результат?
+                                когда я увйжу результат?
                             </AccordionTrigger>
                             <AccordionContent>
                                 У многих первые результаты появляются уже во время SPRINT. Всё зависит от вовлечённости
@@ -337,7 +337,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Какйе навыкй я получу?
+                                какйе навыкй я получу?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Ты научишься работать с DEX, анализировать токены, искать перспективные проекты,
@@ -349,7 +349,7 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                Можно лй учйться с телефона?
+                                можно лй учйться с телефона?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Да. Все материалы и платформы полностью адаптированы под мобильные устройства

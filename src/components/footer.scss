@@ -206,12 +206,28 @@
         &-text {
             opacity: .5;
 
+            &--small {
+                font-size: 14px;
+                opacity: .3;
+                margin-top: 20px;
+            }
+
             @include respond-to(macbook) {
                 font-size: 11px;
+
+                &--small {
+                    font-size: 9px;
+                    margin-top: 15px;
+                }
             }
 
             @media (max-width: 600px) {
                 font-size: 8px;
+
+                &--small {
+                    font-size: 7px;
+                    margin-top: 10px;
+                }
             }
         }
 
