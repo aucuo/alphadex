@@ -1,17 +1,128 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Alpha dex academy</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Alpha Dex Academy — Оплата</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-  </head>
-  <body class="dark">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="dark">
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+
+<style>
+  .payform-tbank {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 40px auto;
+    color: #000;
+  }
+  .payform-tbank-row {
+    margin: 5px 0;
+    border-radius: 4px;
+    padding: 12px;
+    outline: none;
+    border: 1px solid #DFE3F3;
+    background-color: #DFE3F3;
+    font-size: 15px;
+  }
+  .payform-tbank-row:focus {
+    background-color: #FFFFFF;
+    border: 1px solid #616871;
+  }
+  .payform-tbank-btn {
+    background-color: #FBC520;
+    border: 1px solid #FBC520;
+    color: #3C2C0B;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .payform-tbank-btn:hover {
+    background-color: #FAB619;
+    border: 1px solid #FAB619;
+  }
+</style>
+
+<form class="payform-tbank" id="payform-tbank" onsubmit="handleSubmit(event)">
+  <input class="payform-tbank-row" type="hidden" name="terminalkey" value="1747299305220">
+  <input class="payform-tbank-row" type="hidden" name="frame" value="false">
+  <input class="payform-tbank-row" type="hidden" name="language" value="ru">
+  <input class="payform-tbank-row" type="hidden" name="receipt" value="">
+  <input class="payform-tbank-row" type="hidden" name="order" value="">
+  <input class="payform-tbank-row" type="hidden" name="currency" value="RUB">
+
+  <input class="payform-tbank-row" type="text" placeholder="Сумма заказа (например, 100)" name="amount" required>
+  <input class="payform-tbank-row" type="text" placeholder="Описание заказа" name="description">
+  <input class="payform-tbank-row" type="text" placeholder="ФИО плательщика" name="name">
+  <input class="payform-tbank-row" type="email" placeholder="E-mail" name="email">
+  <input class="payform-tbank-row" type="tel" placeholder="Контактный телефон" name="phone">
+
+  <!-- Кнопка -->
+  <input class="payform-tbank-btn" type="submit" value="Оплатить">
+</form>
+
+<script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
+<script>
+  const form = document.getElementById('payform-tbank');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const { terminalkey, amount, description, email, phone, order, receipt } = form;
+
+    // Генерация OrderId
+    order.value = 'order_' + Date.now();
+
+    // Генерация чека (Receipt)
+    if (!email.value && !phone.value) {
+      alert("Укажите E-mail или телефон");
+      return;
+    }
+
+    receipt.value = JSON.stringify({
+      EmailCompany: "mail@mail.com",
+      Taxation: "patent",
+      FfdVersion: "1.2",
+      Items: [{
+        Name: description.value || "Оплата курса",
+        Price: Math.round(amount.value * 100),
+        Quantity: 1,
+        Amount: Math.round(amount.value * 100),
+        PaymentMethod: "full_prepayment",
+        PaymentObject: "service",
+        Tax: "none",
+        MeasurementUnit: "pc"
+      }]
+    });
+
+    const password = 'h*IR9IprIeWygf&o';
+    const dataToSign = terminalkey.value + amount.value * 100 + 'RUB' + order.value + password;
+    const encoder = new TextEncoder();
+    const dataBuffer = encoder.encode(dataToSign);
+
+    const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const token = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    // Добавляем token в форму
+    let tokenInput = document.querySelector('input[name="token"]');
+    if (!tokenInput) {
+      tokenInput = document.createElement('input');
+      tokenInput.type = 'hidden';
+      tokenInput.name = 'token';
+      form.appendChild(tokenInput);
+    }
+    tokenInput.value = token;
+
+    // Отправляем форму
+    pay(form);
+  }
+</script>
+</body>
 </html>
