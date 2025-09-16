@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation, AnimationControls } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimation, useInView, AnimationControls } from 'framer-motion';
 import { ReactSVG } from 'react-svg';
 import SectionTitle from "@/components/sectionTitle.tsx";
 
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button.tsx";
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: 'easeOut' } },
 };
 
 const ProductsSection: React.FC = () => {
@@ -18,17 +18,41 @@ const ProductsSection: React.FC = () => {
     const stepControls: AnimationControls[] = [useAnimation(), useAnimation()];
     const lastStepControls = useAnimation();
 
-    // Последовательная анимация
+    // Рефы для отслеживания появления в viewport
+    const mainTextRef = useRef(null);
+    const stepRefs = [useRef(null), useRef(null)];
+    const lastStepRef = useRef(null);
+
+    // useInView для каждого элемента
+    const isMainTextInView = useInView(mainTextRef, { once: true, margin: "-100px 0px -500px 0px" });
+    const isStep0InView = useInView(stepRefs[0], { once: true, margin: "-100px 0px -500px 0px" });
+    const isStep1InView = useInView(stepRefs[1], { once: true, margin: "-100px 0px -500px 0px" });
+    const isLastStepInView = useInView(lastStepRef, { once: true, margin: "-100px 0px -500px 0px" });
+
+    // Запускаем анимации по мере появления элементов
     useEffect(() => {
-        const sequence = async () => {
-            await mainTextControls.start("visible"); // главный текст
-            for (const control of stepControls) {
-                await control.start("visible"); // шаги 0 и 1
-            }
-            await lastStepControls.start("visible"); // последний шаг
-        };
-        sequence();
-    }, []);
+        if (isMainTextInView) {
+            mainTextControls.start("visible");
+        }
+    }, [isMainTextInView]);
+
+    useEffect(() => {
+        if (isStep0InView) {
+            stepControls[0].start("visible");
+        }
+    }, [isStep0InView]);
+
+    useEffect(() => {
+        if (isStep1InView) {
+            stepControls[1].start("visible");
+        }
+    }, [isStep1InView]);
+
+    useEffect(() => {
+        if (isLastStepInView) {
+            lastStepControls.start("visible");
+        }
+    }, [isLastStepInView]);
 
     return (
         <section className="products section" id="products">
@@ -40,6 +64,7 @@ const ProductsSection: React.FC = () => {
 
                     {/* Главный текст */}
                     <motion.div
+                        ref={mainTextRef}
                         className="products__text products__text--main"
                         variants={itemVariants}
                         initial="hidden"
@@ -65,6 +90,7 @@ const ProductsSection: React.FC = () => {
                         {[0, 1].map((index) => (
                             <motion.div
                                 key={index}
+                                ref={stepRefs[index]}
                                 className="products__text products__step"
                                 variants={itemVariants}
                                 initial="hidden"
@@ -111,6 +137,7 @@ const ProductsSection: React.FC = () => {
 
                     {/* Последний шаг */}
                     <motion.div
+                        ref={lastStepRef}
                         className="products__step products__step--last"
                         variants={itemVariants}
                         initial="hidden"
@@ -152,6 +179,7 @@ const ProductsSection: React.FC = () => {
                     </motion.div>
 
                 </div>
+                <div className="products__circles"></div>
             </div>
         </section>
     );

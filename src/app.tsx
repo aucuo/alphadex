@@ -47,13 +47,10 @@ function App() {
                         </div>
                         <Button
                             onClick={() => {
-                                const element = document.getElementById('products');
-                                if (element) {
-                                    element.scrollIntoView({behavior: 'smooth'});
-                                }
+                                window.open('https://t.me/the1club_bot?start=source_site')
                             }}
                         >
-                            Начать SPRINT
+                            Вступить в THE ONE
                         </Button>
 
                     </div>
@@ -63,13 +60,13 @@ function App() {
                     <img className="hero__coin hero__coin--right" src={CoinsRImage} alt="Монеты крипта"/>
                 </div>
             </section>
-            <ProductsSection/>
-            <ReviewsSection/>
             <div className="container">
                 <WhyUsSection/>
             </div>
             <ReasonsSection/>
             <TargetSection/>
+            <ProductsSection/>
+            <ReviewsSection/>
             <section className="faq section" id="faq">
                 <SectionTitle className="faq__title">
                     FAQ

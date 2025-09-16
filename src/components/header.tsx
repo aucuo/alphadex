@@ -104,10 +104,7 @@ const Header = () => {
                 <Button
                     className="header__button header__button--sprint"
                     onClick={() => {
-                        const element = document.getElementById('products');
-                        if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        window.open('https://t.me/the1club_bot?start=source_site')
                         closeMenu(); // Закрываем меню после клика
                     }}
                 >

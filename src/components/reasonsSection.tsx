@@ -102,13 +102,10 @@ const ReasonsSection: React.FC = () => {
                                 <p className="card__text">{card.text}</p>
                                 <Button
                                     onClick={() => {
-                                        const element = document.getElementById('products');
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
-                                        }
+                                        window.open('https://t.me/m/PYlsZlVaZGZi')
                                     }}
                                 >
-                                    Начать спринт
+                                    ВСТУПИТЬ В THE ONE
                                 </Button>
                             </div>
                         </motion.div>

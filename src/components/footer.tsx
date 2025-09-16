@@ -16,15 +16,12 @@ const Footer = () => {{
                     <div className="footer__buttons">
                         <Button className="footer__button" size="sm"
                                 onClick={() => {
-                                    const element = document.getElementById('products');
-                                    if (element) {
-                                        element.scrollIntoView({ behavior: 'smooth' });
-                                    }
+                                    window.open('https://t.me/the1club_bot?start=source_site')
                                 }}
-                        >Начать Sprint</Button>
+                        >Вступить в THE ONE</Button>
                         <Button className="footer__button footer__button--outline" variant="outlinePrimary" size="sm"
                                 onClick={() => {
-                                    window.open("https://t.me/Alpha_Dex_Academy", "_blank");
+                                    window.open('https://t.me/m/PYlsZlVaZGZi')
                                 }}
                         >
                             Поддержка
