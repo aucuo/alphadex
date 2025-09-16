@@ -1,0 +1,97 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.reviews {
+
+    &__title {
+        margin-top: 60px;
+        margin-bottom: 80px;
+    }
+
+    .swiper {
+        justify-content: center;
+
+        &-wrapper {
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        &-slide {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+            width: fit-content;
+            max-height: 580px;
+            transition: all 400ms ease-in-out;
+            padding-right: 50px;
+
+            @include respond-to(desktop) {
+                max-height: 400px;
+            }
+
+            @include respond-to(phone) {
+                max-height: 300px;
+            }
+
+            img {
+                width: 400px;
+                height: auto;
+                display: block;
+                object-fit: cover;
+                object-position: top;
+                user-select: none;
+
+                @include respond-to(desktop) {
+                    width: 300px;
+                }
+
+                @include respond-to(phone) {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 80px auto 0;
+        max-width: 480px;
+        gap: 20px;
+
+        @include respond-to(desktop) {
+            justify-content: center;
+            margin-top: 40px;
+        }
+    }
+
+    &__btn {
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        svg {
+            width: 102px;
+            height: 102px;
+
+            @include respond-to(desktop) {
+                width: 64px;
+                height: 64px;
+            }
+
+            @include respond-to(phone) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &:disabled {
+            opacity: .5;
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}

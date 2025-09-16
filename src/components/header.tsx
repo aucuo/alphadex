@@ -111,7 +111,7 @@ const Header = () => {
                         closeMenu(); // Закрываем меню после клика
                     }}
                 >
-                    Начать SPRINT
+                    Вступить в THE ONE
                 </Button>
             </div>
         </div>

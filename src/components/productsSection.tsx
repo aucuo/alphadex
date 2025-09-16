@@ -1,0 +1,160 @@
+import React, { useEffect } from 'react';
+import { motion, useAnimation, AnimationControls } from 'framer-motion';
+import { ReactSVG } from 'react-svg';
+import SectionTitle from "@/components/sectionTitle.tsx";
+
+import './productsSection.scss';
+import StepArrowIcon from "@/assets/svg/arrow-step.svg"
+import { Button } from "@/components/ui/button.tsx";
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const ProductsSection: React.FC = () => {
+    // Контроллеры анимации
+    const mainTextControls = useAnimation();
+    const stepControls: AnimationControls[] = [useAnimation(), useAnimation()];
+    const lastStepControls = useAnimation();
+
+    // Последовательная анимация
+    useEffect(() => {
+        const sequence = async () => {
+            await mainTextControls.start("visible"); // главный текст
+            for (const control of stepControls) {
+                await control.start("visible"); // шаги 0 и 1
+            }
+            await lastStepControls.start("visible"); // последний шаг
+        };
+        sequence();
+    }, []);
+
+    return (
+        <section className="products section" id="products">
+            <div className="container">
+                <div className="products__wrapper">
+                    <SectionTitle className="products__name">
+                        Продукт
+                    </SectionTitle>
+
+                    {/* Главный текст */}
+                    <motion.div
+                        className="products__text products__text--main"
+                        variants={itemVariants}
+                        initial="hidden"
+                        animate={mainTextControls}
+                    >
+                        <h3>THE ONE</h3>
+                        <p>
+                            Это твоё пространство для роста. Единый доступ ко всему сразу “Education + Club”<br/>
+                            без ограничений: видеоматериалы, живая торговля, эксперты и комьюнити -<br/>
+                            всё едино и встроено прямо в Telegram
+                        </p>
+                        <p>
+                            Наша цель и намерение - расти финансово за счёт крипторынка, развивать мышление<br/>
+                            и усиливать физическое состояние
+                        </p>
+                        <p>
+                            <span>главное тут - 1+1=11</span>
+                        </p>
+                    </motion.div>
+
+                    {/* Список шагов */}
+                    <div className="products__list">
+                        {[0, 1].map((index) => (
+                            <motion.div
+                                key={index}
+                                className="products__text products__step"
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate={stepControls[index]}
+                            >
+                                <motion.div
+                                    className={`products__step-arrow ${index === 1 ? 'products__step-arrow--right' : ''} reactsvg`}
+                                    variants={itemVariants}
+                                    initial="hidden"
+                                    animate={stepControls[index]}
+                                >
+                                    <ReactSVG src={StepArrowIcon} />
+                                </motion.div>
+
+                                <h3>
+                                    THE ONE <span>{index === 0 ? 'club' : 'education'}</span>
+                                </h3>
+                                <p>
+                                    Живая торговля и поддержка экспертов в <span>реальном времени</span>, а не просто сигнальный чат
+                                </p>
+                                <ul>
+                                    {index === 0 ? (
+                                        <>
+                                            <li>6 экспертов</li>
+                                            <li>живые торговые сессии (Degen-time)</li>
+                                            <li>среднесрочная и интрадей (сигналы) торговля + флип по SOLANA</li>
+                                            <li>мощное коммьюнити</li>
+                                            <li>ламповая атмосфера</li>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <li>15 видеоматериалов с акцентом на действия</li>
+                                            <li>гайды, инструменты и чек-листы</li>
+                                            <li>домашние задания</li>
+                                            <li>еженедельные Zoom-сессии с экспертами для разбора всех вопросов</li>
+                                            <li>вход в клуб</li>
+                                        </>
+                                    )}
+                                </ul>
+                                <p>Здесь структура, рост, эксперты и трейдеры, которые идут вместе с тобой к цели</p>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Последний шаг */}
+                    <motion.div
+                        className="products__step products__step--last"
+                        variants={itemVariants}
+                        initial="hidden"
+                        animate={lastStepControls}
+                    >
+                        <div className="products__arrows">
+                            <motion.div
+                                className="products__step-arrow products__arrows-item products__step-arrow--right reactsvg"
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate={lastStepControls}
+                            >
+                                <ReactSVG src={StepArrowIcon} />
+                            </motion.div>
+                            <motion.div
+                                className="products__step-arrow products__arrows-item reactsvg"
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate={lastStepControls}
+                            >
+                                <ReactSVG src={StepArrowIcon} />
+                            </motion.div>
+                        </div>
+                        <Button
+                            className="products__button"
+                            onClick={() => {
+                                const element = document.getElementById('products');
+                                if (element) {
+                                    element.scrollIntoView({behavior: 'smooth'});
+                                }
+                            }}
+                        >
+                            Вступить в THE ONE
+                        </Button>
+                        <p>
+                            Получи доступ ко всему сразу<br/>
+                            <span>одним кликом</span>
+                        </p>
+                    </motion.div>
+
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ProductsSection;

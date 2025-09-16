@@ -11,6 +11,8 @@
     cursor: pointer;
     transition: .2s all ease-in-out;
     overflow: unset;
+    font-size: 24px;
+    letter-spacing: -.05em;
 
     @include respond-to(tablet) {
         padding: 16px 12px;

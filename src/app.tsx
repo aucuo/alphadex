@@ -1,5 +1,6 @@
 import Header from "./components/header";
 import './app.scss';
+import 'swiper/swiper-bundle.css';
 
 import RocketIcon from "@/assets/svg/rocket-logo.svg";
 import CoinsLImage from "@/assets/images/coins-left.png";
@@ -9,7 +10,6 @@ import {ReactSVG} from "react-svg";
 import {Button} from "@/components/ui/button.tsx";
 import SectionTitle from "./components/sectionTitle";
 
-import DiscountIcon from "@/assets/svg/discount-badge.svg"
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion.tsx";
 import QRImage from "@/assets/images/qr.jpg"
 import QRRes1Image from "@/assets/images/qr-res1.png"
@@ -28,6 +28,8 @@ import TargetSection from "@/components/targetSection.tsx";
 import WhyUsSection from "@/components/whyUsSection.tsx";
 import ReasonsSection from "@/components/reasonsSection.tsx";
 import QuestionsSection from "@/components/questionsSection.tsx";
+import ReviewsSection from "@/components/reviewsSection.tsx";
+import ProductsSection from "@/components/productsSection.tsx";
 
 function App() {
 
@@ -61,206 +63,13 @@ function App() {
                     <img className="hero__coin hero__coin--right" src={CoinsRImage} alt="Монеты крипта"/>
                 </div>
             </section>
+            <ProductsSection/>
+            <ReviewsSection/>
             <div className="container">
                 <WhyUsSection/>
             </div>
             <ReasonsSection/>
             <TargetSection/>
-            <div className="container">
-                <section className="products section" id="products">
-                    <SectionTitle className="products__title">
-                        Продукты
-                    </SectionTitle>
-                    <div className="products__list">
-                        <div className="products__card card">
-                            <h3 className="card__title">
-                                SPRINT lite
-                            </h3>
-                            <p className="card__text">
-                                доступ ко всему на неделю -
-                                попробуи перед стартом
-                            </p>
-                            <ul className="card__list">
-                                <li className="card__list-item">
-                                    15 видеоматериалов
-                                </li>
-                                <li className="card__list-item">
-                                    7 дней в закрытом клубе
-                                </li>
-                                <li className="card__list-item">
-                                    Прямое общение с экспертом
-                                </li>
-                                <li className="card__list-item">
-                                    1 созвон для разбора вопросов
-                                </li>
-                                <li className="card__list-item">
-                                    1 созвон для отработки практики
-                                </li>
-                            </ul>
-                            <div className="card__bottom">
-                                <div className="card__info">
-                                    <div className="card__info-param">
-                                        длительность: 1 неделя
-                                    </div>
-                                    <div className="card__info-param">
-                                        Формат: видео + закрытый клуб
-                                    </div>
-                                    <div className="card__info-param">
-                                        оплата: сразу/рассрочка
-                                    </div>
-                                </div>
-                                <div className="card__price price">
-                                    <div className="price__old">
-                                        11 970 ₽
-                                    </div>
-                                    <div className="price__current">
-                                        8 870 ₽
-                                    </div>
-                                    <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
-                                </div>
-                                <Button className="card__button" variant="black" size="sm"
-                                        onClick={() => {
-                                            const element = document.getElementById('products');
-                                            if (element) {
-                                                element.scrollIntoView({ behavior: 'smooth' });
-                                            }
-                                        }}
-                                >
-                                    Стартовать с Lite
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="products__card card">
-                            <div className="card__badge">
-                                популярное
-                            </div>
-                            <h3 className="card__title">
-                                SPRINT
-                            </h3>
-                            <p className="card__text">
-                                полныи старт в DEX
-                            </p>
-                            <ul className="card__list">
-                                <li className="card__list-item">
-                                    15 видеоматериалов
-                                </li>
-                                <li className="card__list-item">
-                                    Гайды и чек-листы
-                                </li>
-                                <li className="card__list-item">
-                                    30 дней в закрытом клубе
-                                </li>
-                                <li className="card__list-item">
-                                    4 созвона для разбора вопросов
-                                </li>
-                                <li className="card__list-item">
-                                    4 созвона для отработки практики
-                                </li>
-                            </ul>
-                            <div className="card__bottom">
-                                <div className="card__info">
-                                    <div className="card__info-param">
-                                        длительность: 1 месяц
-                                    </div>
-                                    <div className="card__info-param">
-                                        Формат: видео + закрытый клуб + лайвы
-                                    </div>
-                                    <div className="card__info-param">
-                                        оплата: сразу/рассрочка
-                                    </div>
-                                </div>
-                                <div className="card__price price">
-                                    <div className="price__old">
-                                        33 300 ₽
-                                    </div>
-                                    <div className="price__current">
-                                        24 970 ₽
-                                    </div>
-                                    <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
-                                </div>
-                                <Button className="card__button" variant="outlinePrimary" size="sm"
-                                        onClick={() => {
-                                            const element = document.getElementById('products');
-                                            if (element) {
-                                                element.scrollIntoView({ behavior: 'smooth' });
-                                            }
-                                        }}
-                                >
-                                    Пройти SPRINT
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="products__card card">
-                            <h3 className="card__title">
-                                sprint one
-                            </h3>
-                            <p className="card__text">
-                                едйныи максймум -<br/>
-                                для будущйх профй
-                            </p>
-                            <ul className="card__list">
-                                <li className="card__list-item">
-                                    15 видеоматериалов
-                                </li>
-                                <li className="card__list-item">
-                                    Гайды и чек-листы
-                                </li>
-                                <li className="card__list-item">
-                                    60 дней в закрытом клубе
-                                </li>
-                                <li className="card__list-item">
-                                    Прямое общение с экспертами
-                                </li>
-                                <li className="card__list-item">
-                                    8 созвонов для разбора вопросов
-                                </li>
-                                <li className="card__list-item">
-                                    8 созвонов для отработки практики
-                                </li>
-                                <li className="card__list-item">
-                                    Двухдневный интенсив с экспертами
-                                </li>
-                                <li className="card__list-item">
-                                    Разбор инструментов для глубокого ресерча
-                                </li>
-                            </ul>
-                            <div className="card__bottom">
-                                <div className="card__info">
-                                    <div className="card__info-param">
-                                        длительность: 2 месяца
-                                    </div>
-                                    <div className="card__info-param">
-                                        Формат: видео + закрытый клуб + лаивы + 1 неделя
-                                        сопровожденйя в отдельном чате
-                                    </div>
-                                    <div className="card__info-param">
-                                        оплата: сразу/рассрочка
-                                    </div>
-                                </div>
-                                <div className="card__price price">
-                                    <div className="price__old">
-                                        53 200 ₽
-                                    </div>
-                                    <div className="price__current">
-                                        39 900 ₽
-                                    </div>
-                                    <ReactSVG src={DiscountIcon} className="price__badge reactsvg"/>
-                                </div>
-                                <Button className="card__button" variant="black" size="sm"
-                                        onClick={() => {
-                                            const element = document.getElementById('products');
-                                            if (element) {
-                                                element.scrollIntoView({ behavior: 'smooth' });
-                                            }
-                                        }}
-                                >
-                                    Стать PRO
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
             <section className="faq section" id="faq">
                 <SectionTitle className="faq__title">
                     FAQ
