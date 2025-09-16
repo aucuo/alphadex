@@ -8,8 +8,8 @@ import StepArrowIcon from "@/assets/svg/arrow-step.svg"
 import { Button } from "@/components/ui/button.tsx";
 
 const itemVariants = {
-    hidden: { opacity: 0, scale: .5 },
-    visible: { opacity: 1, scale: 1, transition: { duration: .6, ease: 'easeOut' } },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: .6, ease: 'easeOut' } },
 };
 
 const ProductsSection: React.FC = () => {

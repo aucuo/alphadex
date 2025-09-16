@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ReactSVG } from 'react-svg';
 import Shape1Icon from '@/assets/svg/abstract-shape1.svg'; // Пути к вашим иконкам
 import Shape2Icon from '@/assets/svg/abstract-shape2.svg';
+import LinkArrowIcon from '@/assets/svg/link-arrow.svg';
 import SectionTitle from "@/components/sectionTitle.tsx";
 
 import './whyUsSection.scss';
@@ -67,8 +68,18 @@ const WhyUsSection: React.FC = () => {
                         </h3>
                         <p className="card__text">
                             {index === 1 && 'Сообщество DEX-трейдеров в СНГ'}
-                            {index === 2 && 'Прошли SPRINT'}
-                            {index === 3 && 'Спринтеров готовы нас рекомендовать'}
+                            {index === 2 && (
+                                <>
+                                    Выпущенных Хантеров{' '}
+                                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                                        узнать подробнее
+                                        <ReactSVG
+                                            src={LinkArrowIcon}
+                                        />
+                                    </a>
+                                </>
+                            )}
+                            {index === 3 && 'Хантеров готовы нас рекомендовать'}
                             {index === 4 && 'Лет в криптоиндустрии, 3 года из которых в DEX'}
                         </p>
                         <ReactSVG

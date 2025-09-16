@@ -36,18 +36,15 @@
             gap: 30px;
         }
 
-        @include respond-to(desktop) {
+        @include respond-to(tablet) {
             flex-direction: column;
         }
 
         & > div {
-            max-width: 45%;
+            max-width: 40%;
 
-            @include respond-to(macbook) {
-                max-width: 48%;
-            }
-
-            @include respond-to(large) {
+            @include respond-to(tablet) {
+                width: 100%;
                 max-width: unset;
             }
         }
@@ -77,7 +74,7 @@
             display: inline-flex;
             flex-direction: column;
             align-items: flex-end;
-            font-size: 96px;
+            font-size: 82px;
             text-align: center;
             line-height: .9;
             margin: 60px 0 40px;
@@ -88,24 +85,25 @@
             }
 
             @include respond-to(macbook) {
-                font-size: 82px;
+                font-size: 56px;
             }
 
             @include respond-to(large) {
-                font-size: 64px;
+                font-size: 48px;
             }
 
             @include respond-to(desktop) {
                 align-items: flex-start;
-                font-size: 48px;
+                font-size: 36px;
             }
 
             @include respond-to(tablet) {
                 line-height: 100%;
+                text-align: center;
             }
 
             @include respond-to(phone) {
-                font-size: 36px;
+                font-size: 24px;
                 letter-spacing: .05em;
                 margin: 20px 0;
             }
@@ -129,16 +127,16 @@
                 }
             }
 
-            @include respond-to(large) {
+            @include respond-to(macbook) {
                 font-size: 16px;
             }
 
-            @include respond-to(phone) {
+            @include respond-to(large) {
                 font-size: 14px;
             }
         }
         p {
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
             letter-spacing: -.05em;
 
@@ -151,19 +149,15 @@
             }
 
             @include respond-to(macbook) {
-                font-size: 18px;
-            }
-
-            @include respond-to(large) {
                 font-size: 16px;
             }
 
-            @include respond-to(desktop) {
-                text-align: left;
+            @include respond-to(large) {
+                font-size: 14px;
             }
 
-            @include respond-to(phone) {
-                font-size: 14px;
+            @include respond-to(tablet) {
+                text-align: left;
             }
         }
     }
@@ -173,18 +167,21 @@
 
         h3 {
             align-items: center;
-            font-size: 112px;
+            font-size: 96px;
 
             @include respond-to(macbook) {
-                font-size: 96px;
+                font-size: 56px;
             }
 
             @include respond-to(large) {
-                font-size: 84px;
+                font-size: 64px;
             }
 
             @include respond-to(desktop) {
-                font-size: 58px;
+                font-size: 48px;
+            }
+
+            @include respond-to(tablet) {
                 align-items: flex-start;
             }
 
@@ -205,10 +202,14 @@
         }
 
         &-arrow {
-            width: 140px;
+            width: 120px;
             margin: 0 auto;
 
             @include respond-to(desktop) {
+                width: 100px;
+            }
+
+            @include respond-to(tablet) {
                 display: none;
             }
 

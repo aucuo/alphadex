@@ -2,8 +2,15 @@
 @import "@/styles/mixins";
 
 .questions {
-    margin-bottom: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    min-height: 600px;
+
+    @include respond-to(large) {
+        min-height: 200px;
+    }
 
     @include respond-to(macbook) {
         margin-bottom: 100px;
@@ -81,7 +88,6 @@
         padding: 0 20px;
         font-size: 25px;
         text-align: center;
-        margin: 0 auto;
 
         @include respond-to(macbook) {
             max-width: 510px;
@@ -100,18 +106,8 @@
             padding: 0 10px;
         }
 
-        &__input {
-            width: 100%;
-        }
-
         &__text {
             letter-spacing: -.05em;
-        }
-
-        &__title {
-            letter-spacing: .05em;
-            color: $primary;
-            text-transform: uppercase;
         }
     }
 

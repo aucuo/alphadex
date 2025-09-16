@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import SectionTitle from "@/components/sectionTitle.tsx";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
+import { Autoplay } from 'swiper/modules';
 
 import ArrowNextIcon from "@/assets/svg/arrow2-right.svg";
 import ArrowPrevIcon from "@/assets/svg/arrow2-left.svg";
@@ -57,6 +58,10 @@ const ReviewsSection: React.FC = () => {
                 loop={true}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 onSlideChangeTransitionEnd={handleTransitionEnd}
+                autoplay={{
+                    delay: 3000
+                }}
+                modules={[Autoplay]}
             >
                 {imagesArr.map((img, i) => (
                     <SwiperSlide key={i} className="reviews__slide">

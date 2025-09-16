@@ -72,13 +72,8 @@
         transition: all .3s ease-in-out;
 
         svg {
-            width: 102px;
-            height: 102px;
-
-            @include respond-to(desktop) {
-                width: 64px;
-                height: 64px;
-            }
+            width: 64px;
+            height: 64px;
 
             @include respond-to(phone) {
                 width: 32px;

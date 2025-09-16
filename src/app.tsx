@@ -22,6 +22,7 @@ import FollowArrowIcon from "@/assets/svg/follow-arrow.svg";
 import YoutubeIcon from "@/assets/svg/soc-youtube.svg";
 import TelegramIcon from "@/assets/svg/soc-telegram.svg";
 import XIcon from "@/assets/svg/soc-xtwitter.svg";
+import InstagramIcon from "@/assets/svg/soc-instagram.svg";
 import ArrowRightIcon from "@/assets/svg/arrow-right.svg";
 import Footer from "@/components/footer.tsx";
 import TargetSection from "@/components/targetSection.tsx";
@@ -286,14 +287,14 @@ function App() {
                         </Button>
                     </div>
                     <div className="follow__soc soc">
-                        <ReactSVG className="soc__icon reactsvg" src={XIcon}/>
+                        <ReactSVG className="soc__icon reactsvg" src={InstagramIcon}/>
                         <div className="soc__info">
                             <h3 className="soc__title">
                                 Instagram*
                             </h3>
                             <p className="soc__text">
-                                визуальные разборы, сторис с лайфхаками<br/>
-                                и наглядные графики
+                                Live-новости, разборы и сторис с<br/>
+                                лайфхаками
                             </p>
                         </div>
                         <Button className="soc__button" variant="outline" size="sm"
@@ -306,7 +307,7 @@ function App() {
                         </Button>
                     </div>
                     <div className="follow__warning">
-                        *Признана экстремистской организацией и запрещена в РФ.
+                        *Meta Platforms Inc. признана экстремистской организацией; её деятельность запрещена на территории РФ
                     </div>
                     <h4 className="follow__btitle">
                         Не упустите главное - подпишитесь на нас
