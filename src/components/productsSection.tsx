@@ -8,8 +8,8 @@ import StepArrowIcon from "@/assets/svg/arrow-step.svg"
 import { Button } from "@/components/ui/button.tsx";
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: 'easeOut' } },
+    hidden: { opacity: 0, scale: .5 },
+    visible: { opacity: 1, scale: 1, transition: { duration: .6, ease: 'easeOut' } },
 };
 
 const ProductsSection: React.FC = () => {
@@ -24,10 +24,10 @@ const ProductsSection: React.FC = () => {
     const lastStepRef = useRef(null);
 
     // useInView для каждого элемента
-    const isMainTextInView = useInView(mainTextRef, { once: true, margin: "-100px 0px -500px 0px" });
-    const isStep0InView = useInView(stepRefs[0], { once: true, margin: "-100px 0px -500px 0px" });
-    const isStep1InView = useInView(stepRefs[1], { once: true, margin: "-100px 0px -500px 0px" });
-    const isLastStepInView = useInView(lastStepRef, { once: true, margin: "-100px 0px -500px 0px" });
+    const isMainTextInView = useInView(mainTextRef, { once: true, margin: "-100px 0px -300px 0px" });
+    const isStep0InView = useInView(stepRefs[0], { once: true, margin: "-100px 0px -300px 0px" });
+    const isStep1InView = useInView(stepRefs[1], { once: true, margin: "-100px 0px -300px 0px" });
+    const isLastStepInView = useInView(lastStepRef, { once: true, margin: "-100px 0px -300px 0px" });
 
     // Запускаем анимации по мере появления элементов
     useEffect(() => {

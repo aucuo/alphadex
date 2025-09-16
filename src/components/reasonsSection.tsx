@@ -102,7 +102,7 @@ const ReasonsSection: React.FC = () => {
                                 <p className="card__text">{card.text}</p>
                                 <Button
                                     onClick={() => {
-                                        window.open('https://t.me/m/PYlsZlVaZGZi')
+                                        window.open('https://t.me/the1club_bot?start=source_site')
                                     }}
                                 >
                                     ВСТУПИТЬ В THE ONE

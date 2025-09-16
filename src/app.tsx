@@ -75,46 +75,41 @@ function App() {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                какой нужен опыт для старта?
+                                что я получаю после вступленйя?
                             </AccordionTrigger>
                             <AccordionContent>
-                                Ты можешь быть новичком или уже иметь опыт - мы поможем выстроить базу и усилим твои
-                                скиллы на любом уровне
+                                <ul>
+                                    <li>
+                                        доступ к THE ONE Education (видеоматериалы, гайды, Zoom-созвоны каждую неделю)
+                                    </li>
+                                    <li>
+                                        вход в THE ONE Club (торговля внутри дня (сигналы), среднесрочная торговля, эфиры, 6 экспертов рынка)
+                                    </li>
+                                    <li>
+                                        поддержку и рост в вайбовом коммьюнити
+                                    </li>
+                                </ul>
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                как проходйт процесс?
+                                чем the one  отлйчается от курсов йлй другйх закрытых клубов?
                             </AccordionTrigger>
                             <AccordionContent>
-                                Ты получаешь доступ к видео, гайдам и практическим сессиям. Материалы доступны в любое
-                                время плюс живые созвоны для отработки навыков и ответов на вопросы
+                                THE ONE - не курс. Здесь ты не просто «смотришь видео», а сразу применяешь знания в живой торговле. Система строится на практике и участии, а не на теории
+                                Практика, живая торговля и поддержка экспертов - с первого дня. Всё заточено на результат и доступно единым пакетом
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                что будет после SPRINT?
+                                какои нужен опыт для старта?
                             </AccordionTrigger>
                             <AccordionContent>
-                                Ты получаешь доступ в закрытый клуб с поддержкой экспертов, где продолжаешь расти вместе
-                                с
-                                сильным комьюнити и имеешь доступ ко всем материалам
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
-                    <Accordion type="single" collapsible>
-                        <AccordionItem value="item-1">
-                            <AccordionTrigger>
-                                какйе способы оплаты доступны?
-                            </AccordionTrigger>
-                            <AccordionContent>
-                                Ты можешь внести оплату сразу или разбить её на несколько частей без переплат
-                                (рассрочка),
-                                чтобы было удобно
+                                Ты можешь быть новичком или уже иметь опыт - мы поможем выстроить базу и усилим твой скилл хантера на любом уровне
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -134,9 +129,7 @@ function App() {
                                 когда я увйжу результат?
                             </AccordionTrigger>
                             <AccordionContent>
-                                У многих первые результаты появляются уже во время SPRINT. Всё зависит от вовлечённости
-                                и
-                                работы над собой
+                                У многих результаты появляются уже в первые дни. Всё зависит от вовлечённости и того, насколько ты включен в процесс. Мы даём всё, чтобы рост был реальным, не “теоретическим”
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -146,19 +139,38 @@ function App() {
                                 какйе навыкй я получу?
                             </AccordionTrigger>
                             <AccordionContent>
-                                Ты научишься работать с DEX, анализировать токены, искать перспективные проекты,
-                                управлять
-                                рисками и строить личную стратегию для осознанной торговли
+                                Мы даем все необходимое для понимания того, как анализировать токены, искать перспективные проекты, управлять рисками и строить личную стратегию для осознанной торговли
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                можно лй учйться с телефона?
+                                удобно лй проходйть все с телефона?
                             </AccordionTrigger>
                             <AccordionContent>
-                                Да. Все материалы и платформы полностью адаптированы под мобильные устройства
+                                Да. Все материалы и платформы полностью адаптированы под мобильные устройства, весь процесс взаимодействия выстроен в Telegram
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>
+                                доступ к матерйалам на одйн раз - йлй постоянный?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Доступ ко всем материалам сохраняется, пока ты в клубе
+                                Можно пересматривать и использовать ресурсы в любое время и неограниченное количество раз
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>
+                                сколько стойт участйе?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Актуальную стоимость и условия вступления доступны после клика на кнопку «Вступить в THE ONE»
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -272,6 +284,29 @@ function App() {
                             Читать в Twitter
                             <ReactSVG className="reactsvg" src={ArrowRightIcon}/>
                         </Button>
+                    </div>
+                    <div className="follow__soc soc">
+                        <ReactSVG className="soc__icon reactsvg" src={XIcon}/>
+                        <div className="soc__info">
+                            <h3 className="soc__title">
+                                Instagram*
+                            </h3>
+                            <p className="soc__text">
+                                визуальные разборы, сторис с лайфхаками<br/>
+                                и наглядные графики
+                            </p>
+                        </div>
+                        <Button className="soc__button" variant="outline" size="sm"
+                                onClick={() => {
+                                    window.open("https://X.com/alpha1_academy", "_blank");
+                                }}
+                        >
+                            Открыть instagram
+                            <ReactSVG className="reactsvg" src={ArrowRightIcon}/>
+                        </Button>
+                    </div>
+                    <div className="follow__warning">
+                        *Признана экстремистской организацией и запрещена в РФ.
                     </div>
                     <h4 className="follow__btitle">
                         Не упустите главное - подпишитесь на нас

@@ -122,5 +122,19 @@
             font-size: 8px;
             padding-top: 20px;
         }
+
+        ul {
+
+            li {
+                display: flex;
+
+                &:before {
+                    font-size: 90%;
+                    display: block;
+                    content: '●';
+                    margin-right: 1rem;
+                }
+            }
+        }
     }
 }
