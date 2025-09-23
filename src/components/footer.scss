@@ -124,8 +124,9 @@
 
     .nav {
         @include flex();
-        gap: 80px;
+        gap: 50px;
         letter-spacing: -.05em;
+        font-size: 14px;
 
         @include respond-to(macbook) {
             gap: 60px;

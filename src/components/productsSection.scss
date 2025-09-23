@@ -36,12 +36,28 @@
             gap: 30px;
         }
 
+        @include respond-to(macbook) {
+            justify-content: space-around;
+        }
+
+        @include respond-to(large) {
+            justify-content: space-between;
+        }
+
         @include respond-to(tablet) {
             flex-direction: column;
         }
 
         & > div {
-            max-width: 40%;
+            max-width: 520px;
+
+            @include respond-to(macbook) {
+                max-width: 400px;
+            }
+
+            @include respond-to(large) {
+                max-width: 300px;
+            }
 
             @include respond-to(tablet) {
                 width: 100%;
@@ -57,7 +73,7 @@
         padding: 100px 0;
 
         @include respond-to(macbook) {
-            gap: 100px;
+            gap: 50px;
         }
 
         @include respond-to(xxl) {
@@ -85,7 +101,7 @@
             }
 
             @include respond-to(macbook) {
-                font-size: 56px;
+                font-size: 64px;
             }
 
             @include respond-to(large) {
@@ -119,11 +135,12 @@
                 margin-left: 10px;
                 padding-left: 6px;
 
-                &::marker {
+                &::before {
                     content: "•";
                     display: inline-block;
                     width: 0.5em;
-                    margin-left: -0.5em;
+                    margin-left: -1em;
+                    margin-right: .5em;
                 }
             }
 

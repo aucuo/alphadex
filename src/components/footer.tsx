@@ -66,6 +66,9 @@ const Footer = () => {{
                             <a href="https://teletype.in/@alpha_one_academy" target="_blank" className="nav__link">
                                 teletype
                             </a>
+                            <a href="https://teletype.in/@alpha_one_academy" target="_blank" className="nav__link">
+                                instagram
+                            </a>
                             {/*<div className="nav__link nav__link--disabled">*/}
                             {/*    debank personal*/}
                             {/*</div>*/}

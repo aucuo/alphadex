@@ -140,7 +140,7 @@
             text-align: center;
 
             @include respond-to(macbook) {
-                font-size: 82px;
+                font-size: 74px;
             }
 
             @include respond-to(tablet) {
@@ -157,12 +157,12 @@
         }
         p {
             text-transform: uppercase;
-            font-size: 33px;
+            font-size: 28px;
             text-align: center;
             letter-spacing: .1em;
 
             @include respond-to(macbook) {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             @include respond-to(desktop) {
@@ -450,6 +450,7 @@
 }
 
 .follow {
+
     &__title {
         margin-bottom: 120px;
         margin-top: 70px;
@@ -475,6 +476,11 @@
     &__warning {
         opacity: .5;
         font-size: 16px;
+
+        @include respond-to(phone) {
+            font-size: 12px;
+            margin-bottom: 45px;
+        }
     }
 
     &__text {
@@ -676,6 +682,7 @@
     &__btext {
         text-align: center;
         font-size: 25px;
+        margin-bottom: 50px;
 
         @include respond-to(macbook) {
             font-size: 18px;

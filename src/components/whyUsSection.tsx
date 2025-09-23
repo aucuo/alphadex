@@ -66,7 +66,7 @@ const WhyUsSection: React.FC = () => {
                             {index === 3 && '99,9%'}
                             {index === 4 && '5+'}
                         </h3>
-                        <p className="card__text">
+                        <div className="card__text">
                             {index === 1 && 'Сообщество DEX-трейдеров в СНГ'}
                             {index === 2 && (
                                 <>
@@ -81,7 +81,7 @@ const WhyUsSection: React.FC = () => {
                             )}
                             {index === 3 && 'Хантеров готовы нас рекомендовать'}
                             {index === 4 && 'Лет в криптоиндустрии, 3 года из которых в DEX'}
-                        </p>
+                        </div>
                         <ReactSVG
                             src={index > 2 ? Shape1Icon : Shape2Icon}
                             className="card__shape reactsvg"

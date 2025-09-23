@@ -59,7 +59,8 @@ const ReviewsSection: React.FC = () => {
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 onSlideChangeTransitionEnd={handleTransitionEnd}
                 autoplay={{
-                    delay: 3000
+                    delay: 3000,
+                    disableOnInteraction: true,
                 }}
                 modules={[Autoplay]}
             >
