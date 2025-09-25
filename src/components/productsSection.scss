@@ -176,6 +176,10 @@
 
             @include respond-to(large) {
                 font-size: 14px;
+
+                br {
+                    display: none;
+                }
             }
 
             @include respond-to(tablet) {

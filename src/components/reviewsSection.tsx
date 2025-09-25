@@ -54,10 +54,8 @@ const ReviewsSection: React.FC = () => {
                 if (swiperRef.current?.autoplay) {
                     if (entry.isIntersecting) {
                         swiperRef.current.autoplay.start();
-                        console.log('start')
                     } else {
                         swiperRef.current.autoplay.stop();
-                        console.log('stop')
                     }
                 }
             },
