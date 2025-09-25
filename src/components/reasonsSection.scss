@@ -168,7 +168,7 @@
             margin-bottom: 25px;
 
             @include respond-to(macbook) {
-                font-size: 28px;
+                font-size: 32px;
                 margin-bottom: 30px;
             }
 
@@ -186,9 +186,9 @@
             text-transform: uppercase;
 
             @include respond-to(macbook) {
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 20px;
-                max-width: 390px;
+                max-width: 460px;
             }
 
             @include respond-to(desktop) {

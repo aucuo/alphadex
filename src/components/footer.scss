@@ -30,12 +30,12 @@
     }
 
     &__logo {
-        width: 265px;
+        width: 260px;
         height: auto;
         margin-bottom: 32px;
 
         @include respond-to(macbook) {
-            width: 194px;
+            width: 155px;
         }
 
         @media (max-width: 600px) {

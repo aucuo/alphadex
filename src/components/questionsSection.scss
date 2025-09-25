@@ -45,6 +45,7 @@
         position: absolute;
 
         &--sonic {
+            width: 600px;
             top: 400px;
             left: -100px;
 
@@ -62,6 +63,7 @@
         &--hatico {
             top: 0;
             right: -100px;
+            width: 630px;
 
             @include respond-to(macbook) {
                 width: 600px;

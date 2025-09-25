@@ -80,7 +80,7 @@ const WhyUsSection: React.FC = () => {
                                 </>
                             )}
                             {index === 3 && 'Хантеров готовы нас рекомендовать'}
-                            {index === 4 && 'Лет в криптоиндустрии, 3 года из которых в DEX'}
+                            {index === 4 && 'Лет в криптоиндустрии, 3+ года из которых в DEX'}
                         </div>
                         <ReactSVG
                             src={index > 2 ? Shape1Icon : Shape2Icon}

@@ -55,7 +55,7 @@ const Header = () => {
                     Кому
                 </a>
                 <a href="#products" className="header__nav-link" onClick={closeMenu}>
-                    Продукты
+                    Продукт
                 </a>
                 <a href="#faq" className="header__nav-link" onClick={closeMenu}>
                     FAQ
@@ -83,7 +83,7 @@ const Header = () => {
                     variant="outline"
                     size="icon"
                     onClick={() => {
-                        window.open("https://twitter.com/alpha1_academy ", "_blank");
+                        window.open("https://x.com/the_______one", "_blank");
                     }}
                 >
                     <ReactSVG src={XIcon} className="reactsvg" />

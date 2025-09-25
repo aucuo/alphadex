@@ -44,7 +44,7 @@ const Footer = () => {{
                                 Кому
                             </a>
                             <a href="#products" className="nav__link">
-                                Продукты
+                                Продукт
                             </a>
                             <a href="#faq" className="nav__link">
                                 FAQ
@@ -57,16 +57,16 @@ const Footer = () => {{
                             <a href="https://t.me/AlphaDEX_Academy" target="_blank" className="nav__link">
                                 telegram
                             </a>
-                            <a href="https://youtube.com/@alpha1_academy" target="_blank" className="nav__link">
+                            <a href="https://www.youtube.com/@alphadex_academy" target="_blank" className="nav__link">
                                 YOUTUBE
                             </a>
-                            <a href="https://X.com/alpha1_academy" target="_blank" className="nav__link">
+                            <a href="https://x.com/the_______one" target="_blank" className="nav__link">
                                 twitter (x)
                             </a>
                             <a href="https://teletype.in/@alpha_one_academy" target="_blank" className="nav__link">
                                 teletype
                             </a>
-                            <a href="https://teletype.in/@alpha_one_academy" target="_blank" className="nav__link">
+                            <a href="https://www.instagram.com/alphadexacademy?igsh=MWcweTlheXUyZ3RzNw%3D%3D" target="_blank" className="nav__link">
                                 instagram
                             </a>
                             {/*<div className="nav__link nav__link--disabled">*/}

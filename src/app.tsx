@@ -259,7 +259,7 @@ function App() {
                         </div>
                         <Button className="soc__button" variant="outline" size="sm"
                                 onClick={() => {
-                                    window.open("https://youtube.com/@alpha1_academy", "_blank");
+                                    window.open("https://www.youtube.com/@alphadex_academy", "_blank");
                                 }}
                         >
                             Смотреть на YouTube
@@ -279,7 +279,7 @@ function App() {
                         </div>
                         <Button className="soc__button" variant="outline" size="sm"
                                 onClick={() => {
-                                    window.open("https://X.com/alpha1_academy", "_blank");
+                                    window.open("https://x.com/the_______one", "_blank");
                                 }}
                         >
                             Читать в Twitter
@@ -299,7 +299,7 @@ function App() {
                         </div>
                         <Button className="soc__button" variant="outline" size="sm"
                                 onClick={() => {
-                                    window.open("https://X.com/alpha1_academy", "_blank");
+                                    window.open("https://www.instagram.com/alphadexacademy?igsh=MWcweTlheXUyZ3RzNw%3D%3D", "_blank");
                                 }}
                         >
                             Открыть instagram
