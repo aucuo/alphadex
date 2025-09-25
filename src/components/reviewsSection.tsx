@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import SectionTitle from "@/components/sectionTitle.tsx";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
@@ -16,6 +16,7 @@ const ReviewsSection: React.FC = () => {
     const imagesArr = Object.values(imagesRecord).map(m => m.default);
 
     const swiperRef = useRef<SwiperType | null>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     const handleTransitionEnd = () => {
         if (!swiperRef.current) return;
@@ -44,8 +45,36 @@ const ReviewsSection: React.FC = () => {
         swiperRef.current?.slidePrev();
     };
 
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (swiperRef.current?.autoplay) {
+                    if (entry.isIntersecting) {
+                        swiperRef.current.autoplay.start();
+                        console.log('start')
+                    } else {
+                        swiperRef.current.autoplay.stop();
+                        console.log('stop')
+                    }
+                }
+            },
+            {
+                threshold: 0.5, // достаточно 10% видимости
+            }
+        );
+
+        observer.observe(section);
+
+        return () => {
+            observer.unobserve(section);
+        };
+    }, []);
+
     return (
-        <section className="reviews section" id="reviews">
+        <section className="reviews section" id="reviews" ref={sectionRef}>
             <div className="container">
                 <SectionTitle className="reviews__title">Отзывы</SectionTitle>
             </div>

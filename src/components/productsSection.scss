@@ -191,9 +191,9 @@
             align-items: center;
             font-size: 116px;
 
-            //@include respond-to(macbook) {
-            //    font-size: 116px;
-            //}
+            @include respond-to(macbook) {
+                font-size: 92px;
+            }
 
             @include respond-to(large) {
                 font-size: 64px;
